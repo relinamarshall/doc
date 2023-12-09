@@ -5,3 +5,4 @@
 ## Linux命令
 
 * [find](linux-ming-ling/find.md)
+* [du](linux-ming-ling/du.md)
