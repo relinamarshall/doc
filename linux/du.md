@@ -1,8 +1,19 @@
 ---
 description: Du，disk usage简称是用于估算文件或目录的磁盘使用情况 ，参数的不同组合，可以更快的提高工作效率
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
-# du
+# DU
 
 #### 选项 <a href="#ea15ae2b" id="ea15ae2b"></a>
 

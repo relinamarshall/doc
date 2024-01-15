@@ -2,6 +2,17 @@
 description: >-
   存储引擎（Storage Engine），是MySQL 的专用称呼，数据库行业老大哥 Oracle，以及 SQL Server，PostgreSQL
   等都没有存储引擎的说法。
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # MYSQL存储引擎

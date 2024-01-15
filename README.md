@@ -9,7 +9,7 @@ layout:
   outline:
     visible: true
   pagination:
-    visible: true
+    visible: false
 ---
 
 # 我的空间
