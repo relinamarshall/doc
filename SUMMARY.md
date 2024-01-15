@@ -1,9 +1,13 @@
 # Table of contents
 
-* [正则表达式](README.md)
+* [我的空间](README.md)
 
-## Linux命令
+## Linux
 
-* [实用脚本](linux-ming-ling/shi-yong-jiao-ben.md)
-* [find](linux-ming-ling/find.md)
-* [du](linux-ming-ling/du.md)
+* [find](linux/find.md)
+* [du](linux/du.md)
+
+## Other
+
+* [实用脚本](other/shi-yong-jiao-ben.md)
+* [正则](other/zheng-ze.md)
