@@ -4,7 +4,7 @@ description: >-
   等都没有存储引擎的说法。
 ---
 
-# Mysql的存储引擎
+# MYSQL存储引擎
 
 ## <mark style="color:blue;">1、前言</mark>
 

@@ -4,12 +4,12 @@
 
 ## 数据库
 
-* [Mysql的存储引擎](shu-ju-ku/mysql-de-cun-chu-yin-qing.md)
+* [MYSQL存储引擎](shu-ju-ku/mysql-cun-chu-yin-qing.md)
 
 ## Linux
 
-* [find](linux/find.md)
-* [du](linux/du.md)
+* [FIND](linux/find.md)
+* [DU](linux/du.md)
 
 ## Other
 
