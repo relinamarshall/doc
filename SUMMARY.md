@@ -5,6 +5,7 @@
 ## 数据库
 
 * [MYSQL存储引擎](shu-ju-ku/mysql-cun-chu-yin-qing.md)
+* [MYSQL锁机制](shu-ju-ku/mysql-suo-ji-zhi.md)
 
 ## Linux
 
