@@ -14,6 +14,6 @@
 
 ## Other
 
-* [Windows SSH免密登录Linux](other/windows-ssh-mian-mi-deng-lu-linux.md)
+* [SSH免密登录Linux](other/ssh-mian-mi-deng-lu-linux.md)
 * [实用脚本](other/shi-yong-jiao-ben.md)
 * [正则](other/zheng-ze.md)
