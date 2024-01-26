@@ -133,7 +133,7 @@ du --exclude=*.log
 
 ## 详细文档
 
-`man find`&#x20;
+`man du`&#x20;
 
 ```
 NAME
