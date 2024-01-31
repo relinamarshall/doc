@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # JavaCollection
 
 ## Java集合 <a href="#usercontent-yin-yan" id="usercontent-yin-yan"></a>
