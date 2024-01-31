@@ -14,7 +14,7 @@ layout:
 
 # JavaSE
 
-## Java概述 <a href="#usercontentjava-gai-shu" id="usercontentjava-gai-shu"></a>
+## 1、Java概述 <a href="#usercontentjava-gai-shu" id="usercontentjava-gai-shu"></a>
 
 ***
 
@@ -75,7 +75,7 @@ Java语言既具有编译型语言的特征，也具有解释型语言的特征�
 
 ***
 
-## 基础语法 <a href="#usercontent-ji-chu-yu-fa" id="usercontent-ji-chu-yu-fa"></a>
+## 2、基础语法 <a href="#usercontent-ji-chu-yu-fa" id="usercontent-ji-chu-yu-fa"></a>
 
 ### **数据类型**
 
@@ -234,7 +234,7 @@ int autoAdd(int count){
 
 ***
 
-## 面向对象 <a href="#usercontent-mian-xiang-dui-xiang" id="usercontent-mian-xiang-dui-xiang"></a>
+## 3、面向对象 <a href="#usercontent-mian-xiang-dui-xiang" id="usercontent-mian-xiang-dui-xiang"></a>
 
 ### **面向对象和面向过程的区别**
 
@@ -720,7 +720,7 @@ Son类继承Father类，并重写了父类的dringMilk方法，在输出结果�
 
 ***
 
-## String <a href="#user-content-string" id="user-content-string"></a>
+## 4、String <a href="#user-content-string" id="user-content-string"></a>
 
 ### **String是Java基本数据类型吗，可以被继承吗**
 
@@ -895,7 +895,7 @@ private void StringOverrideEquals(){
 
 ***
 
-## Integer <a href="#user-content-integer" id="user-content-integer"></a>
+## 5、Integer <a href="#user-content-integer" id="user-content-integer"></a>
 
 ### **Integer a = 127，Integer b = 127；Integer c = 128，Integer d = 128;相等吗**
 
@@ -989,7 +989,7 @@ public static int parseInt(String s, int radix) throws NumberFormatException{
 
 ***
 
-## Object <a href="#user-content-object" id="user-content-object"></a>
+## 6、Object <a href="#user-content-object" id="user-content-object"></a>
 
 ### **Object类的常见方法**
 
@@ -1028,7 +1028,7 @@ Object类是一个特殊的类，是所有类的父类，也就是说所有类�
 
 ***
 
-## 异常处理 <a href="#usercontent-yi-chang-chu-li" id="usercontent-yi-chang-chu-li"></a>
+## 7、异常处理 <a href="#usercontent-yi-chang-chu-li" id="usercontent-yi-chang-chu-li"></a>
 
 ### **Java中异常处理体系**
 
@@ -1143,7 +1143,7 @@ public class TryDemo {
 
 ***
 
-## I/O <a href="#user-content-io" id="user-content-io"></a>
+## 8、I/O <a href="#user-content-io" id="user-content-io"></a>
 
 ### **Java中IO流分为几种**
 
@@ -1209,7 +1209,7 @@ NIO的数据是面向**缓冲区Buffer**的，必须从Buffer中读取或写入
 
 ***
 
-## 序列化 <a href="#usercontent-xu-lie-hua" id="usercontent-xu-lie-hua"></a>
+## 9、序列化 <a href="#usercontent-xu-lie-hua" id="usercontent-xu-lie-hua"></a>
 
 ### **序列化，反序列化**
 
@@ -1263,7 +1263,7 @@ Java序列化方式有很多，常见的有三种：
 
 ***
 
-## 泛型 <a href="#usercontent-fan-xing" id="usercontent-fan-xing"></a>
+## 10、泛型 <a href="#usercontent-fan-xing" id="usercontent-fan-xing"></a>
 
 ### **Java泛型，什么是类型擦除，常用的通配符**
 
@@ -1394,7 +1394,7 @@ list.add(new Dog());
 
 ***
 
-## 注解 <a href="#usercontent-zhu-jie" id="usercontent-zhu-jie"></a>
+## 11、注解 <a href="#usercontent-zhu-jie" id="usercontent-zhu-jie"></a>
 
 ### **对注解的理解**
 
@@ -1424,7 +1424,7 @@ Java注解本质上是一个标记，可以理解成生活中的一个人的一�
 
 ***
 
-## 反射 <a href="#usercontent-fan-she" id="usercontent-fan-she"></a>
+## 12、反射 <a href="#usercontent-fan-she" id="usercontent-fan-she"></a>
 
 ### **什么是反射，应用，原理**
 
@@ -1487,11 +1487,11 @@ public class Get {
 
 ***
 
-## JDK1.8 新特性 <a href="#usercontentjdk18-xin-te-xing" id="usercontentjdk18-xin-te-xing"></a>
+## 13、JDK8 <a href="#usercontentjdk18-xin-te-xing" id="usercontentjdk18-xin-te-xing"></a>
 
 JDK 已经出到 17 了，但是你迭代你的版本，我用我的 8。JDK1.8 的一些新特性，当然现在也不新了，其实在工作中已经很常用了
 
-### **JDK1.8新特性**
+### **新特性**
 
 JDK1.8有不少新特性，经常接触到的新特性如下：
 
