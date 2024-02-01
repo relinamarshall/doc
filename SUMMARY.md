@@ -17,6 +17,7 @@
 * [JavaSE](interview/javase.md)
 * [JavaCollection](interview/javacollection.md)
 * [JavaThead](interview/javathead.md)
+* [JavaJVM](interview/javajvm.md)
 
 ## Other
 
