@@ -279,7 +279,7 @@ JDK1.8的数据结构是`数组+链表+红黑树`
 * 每个红色节点的两个子节点一定都是黑色
 * 从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>红黑树</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>红黑树</p></figcaption></figure>
 
 > 之所以不用二叉树
 
@@ -295,17 +295,17 @@ JDK1.8的数据结构是`数组+链表+红黑树`
 
 * 旋转：旋转分为两种，左旋和右旋
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>旋转</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>旋转</p></figcaption></figure>
 
 * 染色
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>染色</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>染色</p></figcaption></figure>
 
 ### **4、HashMap的put流程知道吗？**
 
 流程图：
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>HashMap.put</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>HashMap.put</p></figcaption></figure>
 
 * 首先进行哈希值的扰动，获取一个新的哈希值；`(key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16)`
 *   判断tab数组是否为空或者长度为0，如果是则进行扩容操作
@@ -323,7 +323,7 @@ JDK1.8的数据结构是`数组+链表+红黑树`
 
 流程图：
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>HashMap.get</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>HashMap.get</p></figcaption></figure>
 
 * 使用扰动函数，获取新的哈希值
 * 计算数组下标，获取节点
@@ -368,13 +368,13 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 
 这也正好解释了为什么HashMap的数组长度要取2的整数幂；因为这样(数组长度-1)正好相当于一个"低位掩码"；`与`操作的结果就是散列值的高位全部归零，只保留低位值，用来做数组下标访问；以初始长度16为例，16-1=15；2进制表示为`0000 0000 0000 0000 0000 0000 0000 1111`；和某个散列值做`与`操作如下，结果就是截取了最低的四位值
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>数组长度减一取模</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>数组长度减一取模</p></figcaption></figure>
 
 这样是要快捷一些，但是新的问题来了，就算散列值分布再松散，要是只取最后几位的话，碰撞也会很严重；如果散列本身做得不好，分布上成等差数列的漏洞，如果正好让最后几个低位呈现规律性重复，那就更难搞了
 
 这时候`扰动函数`的价值就体现出来了，看一下扰动函数的示意图：
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>扰动函数</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>扰动函数</p></figcaption></figure>
 
 右移16位，正好是32bit的一半，自己的高半区和低半区做异或，就是为了混合原始哈希码的高位和低位，以此来加大低位的随机性；而且混合后的低位掺杂了高位的部分特征，这样高位的信息也被变相保留下来
 
@@ -389,7 +389,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 
     可以简单看看HashMap的扩容机制，Hash Map中的元素在超过`负载因子*HashMap的大小`时就会产生扩容
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>HashMap扩容</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>HashMap扩容</p></figcaption></figure>
 
 ### **9、如果初始化HashMap，传入一个17的值，他会怎么处理？**
 

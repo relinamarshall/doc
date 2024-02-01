@@ -57,7 +57,7 @@ Java程序从源代码到运行主要有三步：
 * 解释：虚拟机执行Java字节码，将字节码翻译成机器能识别的机器码
 * 执行：对应的机器执行二进制机器码
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Java源码运行步骤</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Java源码运行步骤</p></figcaption></figure>
 
 只需要把Java程序编译成Java虚拟机能识别的Java字节码，不同的平台安装对应的Java虚拟机，这样就可以实现Java语言的平台无关性
 
@@ -71,7 +71,7 @@ Java程序从源代码到运行主要有三步：
 
 Java语言既具有编译型语言的特征，也具有解释型语言的特征，因为Java程序要经过先编译，后解释两个步骤，由Java编写的程序需要先经过编译步骤，生成字节码(.class)文件，这种字节码必须再进过JVM，解释成操作系统能识别的机器码，在由操作系统执行；因此，可以认为Java语言编译与解释并存
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>编译与解释并存</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>编译与解释并存</p></figcaption></figure>
 
 ***
 
@@ -83,7 +83,7 @@ Java语言既具有编译型语言的特征，也具有解释型语言的特征�
 
 Java语言数据类型分为两种：**基本数据类型**和**引用数据类型**
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Java数据类型</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>Java数据类型</p></figcaption></figure>
 
 基本数据类型：
 
@@ -116,7 +116,7 @@ Java基本数据类型范围和默认值
 
 Java所有的数值型变量可以相互转换，当把一个表数范围小的数值或变量直接赋给另一个表述范围大变量时，可以进行自动类型转换；反之，需要强制类型转换
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>自动类型转换</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>自动类型转换</p></figcaption></figure>
 
 这就好像，小杯里的水倒进大杯没问题，但大杯的水倒进小杯就不行，可能会溢出
 
@@ -137,7 +137,7 @@ Java所有的数值型变量可以相互转换，当把一个表数范围小的�
 
 Java 可以自动对基本数据类型和它们的包装类进行装箱和拆箱
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>自动拆箱装箱</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>自动拆箱装箱</p></figcaption></figure>
 
 ```java
 Integer i = 10;
