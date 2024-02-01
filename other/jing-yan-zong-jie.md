@@ -1,5 +1,5 @@
 ---
-description: 出处：https://space.bilibili.com/439507793
+description: B站微博架构师：https://space.bilibili.com/439507793
 ---
 
 # 经验总结
