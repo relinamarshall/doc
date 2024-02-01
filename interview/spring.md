@@ -22,7 +22,7 @@ layout:
 
 2003 年，一个音乐家 Rod Johnson 决定发展一个轻量级的 Java 开发框架，`Spring`作为 Java 战场的龙骑兵渐渐崛起，并淘汰了`EJB(sun的JavaEE服务器端组件模型，设计目标与核心应用是部署分布式应用程序。简单来说就是把已经编写好的程序(即:类)打包放在服务器上执行)`这个传统的重装骑兵
 
-![1660281547706](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660281547706.png)
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 到了现在，企业级开发的标配基本就是 **Spring5** + **Spring Boot 2** + **JDK 8**
 
@@ -30,7 +30,7 @@ layout:
 
 Spring 有很多优点：
 
-![1660281614908](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660281614908.png)
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 *   **IOC** 和 **DI** 的支持
 
@@ -55,7 +55,7 @@ Spring 有很多优点：
 
 Spring 框架是分模块存在，除了最核心的`Spring Core Container`是必要模块之外，其他模块都是`可选`，大约有 20 多个模块
 
-![1660281876159](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660281876159.png)
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 最主要的七大模块：
 
@@ -71,7 +71,9 @@ Spring 框架是分模块存在，除了最核心的`Spring Core Container`是�
 
 Spring 有很多模块，甚至广义的 SpringBoot、SpringCloud 也算是 Spring 的一部分，分模块，按功能来看一下一些常用的注解：
 
-![1660282094488](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660282094488.png)
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 **Web**:
 
@@ -110,11 +112,11 @@ Spring 有很多模块，甚至广义的 SpringBoot、SpringCloud 也算是 Spri
 
 * @Transactional：在要开启事务的方法上使用@Transactional 注解，即可声明式开启事务
 
-**4、Spring 中应用了哪些设计模式呢？**
+### **4、Spring 中应用了哪些设计模式呢？**
 
 Spring 框架中广泛使用了不同类型的设计模式
 
-![1660282709633](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660282709633.png)
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 1. **工厂模式** : Spring 容器本质是一个大工厂，使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象
 2. **代理模式** : Spring AOP 功能就是通过代理模式来实现的，分为动态代理和静态代理
@@ -134,11 +136,11 @@ Java 是面向对象的编程语言，一个个实例对象相互合作组成了
 
 所谓的**IOC**（控制反转）：就是由容器来负责控制对象的生命周期和对象间的关系。以前是想要什么，就自己创建什么，现在是需要什么，容器就给拿来什么
 
-![1660282875199](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660282875199.png)
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 也就是说，控制对象生命周期的不再是引用它的对象，而是容器；对具体对象，以前是它控制其它对象，现在所有对象都被容器控制，所以这就叫**控制反转**
 
-![1660282916612](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660282916612.png)
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 **DI（依赖注入）**：指的是容器在实例化对象的时候把它依赖的类注入给它。有的说法 IOC 和 DI 是一回事，有的说法是 IOC 是思想，DI 是 IOC 的实现
 
@@ -152,7 +154,7 @@ PS:这道题老三在面试中被问到过，问法是“**你有自己实现过
 
 Spring 的 IOC 本质就是一个大工厂，想想一个工厂是怎么运行的呢？
 
-![1660283056701](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660283056701.png)
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 *   **生产产品**：一个工厂最核心的功能就是生产产品。在 Spring 里，不用 Bean 自己来实例化，而是交给 Spring，应该怎么实现呢？——答案毫无疑问，**反射**
 
@@ -164,7 +166,7 @@ Spring 的 IOC 本质就是一个大工厂，想想一个工厂是怎么运行�
 
 简单地实现一个 mini 版的 Spring IOC：
 
-![1660283253556](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660283253556.png)
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 **Bean 定义：**
 
@@ -252,9 +254,10 @@ Bean 通过一个配置文件定义，把它解析成一个类型
         }
     }
     ```
-*   **BeanFactory.java**
+* **BeanFactory.java**
 
-    ![1660283556063](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660283556063.png)
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
 * 对象工厂，我们最**核心**的一个类，在它初始化的时候，创建了 bean 注册器，完成了资源的加载
 * 获取 bean 的时候，先从单例缓存中取，如果没有取到，就创建并注册一个 bean
 
@@ -368,7 +371,7 @@ BeanFactory 是类的通用工厂，可以创建并管理各种类的对象。
 
 Spring 为 BeanFactory 提供了很多种实现，最常用的是 XmlBeanFactory，但在 Spring 3.2 中已被废弃，建议使用 XmlBeanDefinitionReader、DefaultListableBeanFactory
 
-![1660284251225](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660284251225.png)
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 BeanFactory 接口位于类结构树的顶端，它最主要的方法就是 getBean(String var1)，这个方法从容器中返回特定名称的 Bean。
 
@@ -390,7 +393,7 @@ public class HelloWorldApp{
 
 ApplicationContext 由 BeanFactory 派生而来，提供了更多面向实际应用的功能。可以这么说，使用 BeanFactory 就是手动档，使用 ApplicationContext 就是自动档。
 
-![1660284356021](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660284356021.png)
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 ApplicationContext 继承了 HierachicalBeanFactory 和 ListableBeanFactory 接口，在此基础上，还通过其他的接口扩展了 BeanFactory 的功能，包括：
 
@@ -421,11 +424,11 @@ Spring 的 IOC 容器工作的过程，其实可以划分为两个阶段：**容
 
 其中容器启动阶段主要做的工作是加载和解析配置文件，保存到对应的 Bean 定义中
 
-![1660284721274](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660284721274.png)
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 容器启动开始，首先会通过某种途径加载 Congiguration MetaData，在大部分情况下，容器需要依赖某些工具类（BeanDefinitionReader）对加载的 Congiguration MetaData 进行解析和分析，并将分析后的信息组为相应的 BeanDefinition
 
-![1660284781824](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660284781824.png)
+<figure><img src="../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
 
 最后把这些保存了 Bean 定义必要信息的 BeanDefinition，注册到相应的 BeanDefinitionRegistry，这样容器启动就完成了
 
@@ -435,7 +438,7 @@ Spring 的 IOC 容器工作的过程，其实可以划分为两个阶段：**容
 
 Spring IOC 中 Bean 的生命周期大致分为四个阶段：**实例化**（Instantiation）、**属性赋值**（Populate）、**初始化**（Initialization）、**销毁**（Destruction）
 
-![1660284933348](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660284933348.png)
+<figure><img src="../.gitbook/assets/image (182).png" alt=""><figcaption></figcaption></figure>
 
 再来看一个稍微详细一些的过程：
 
@@ -444,11 +447,13 @@ Spring IOC 中 Bean 的生命周期大致分为四个阶段：**实例化**（In
 * **初始化**：初始化的阶段的步骤比较多，5、6 步是真正的初始化，第 3、4 步为在初始化前执行，第 7 步在初始化后执行，初始化完成之后，Bean 就可以被使用了
 * **销毁**：第 8\~10 步，第 8 步其实也可以算到销毁阶段，但不是真正意义上的销毁，而是先在使用前注册了销毁的相关调用接口，为了后面第 9、10 步真正销毁 Bean 时再执行相应的方法
 
-![1660284983765](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660284983765.png)
+<figure><img src="../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
 
 简单总结一下，Bean 生命周期里初始化的过程相对步骤会多一些，比如前置、后置的处理
 
-![1660285121618](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660285121618.png)
+<figure><img src="../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
 
 *   定义一个`PersonBean`类，实现`DisposableBean`,`InitializingBean`, `BeanFactoryAware`, `BeanNameAware`这 4 个接口，同时还有自定义的`init-method`和`destroy-method`
 
@@ -585,13 +590,13 @@ Spring IOC 中 Bean 的生命周期大致分为四个阶段：**实例化**（In
 
 关于源码，Bean 创建过程可以查看`AbstractBeanFactory#doGetBean`方法，在这个方法里可以看到 Bean 的实例化，赋值、初始化的过程，至于最终的销毁，可以看看`ConfigurableApplicationContext#close()`
 
-![1660285469409](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660285469409.png)
+<figure><img src="../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
 
 ### **6、Bean 定义和依赖定义有哪些方式？**
 
 有三种方式：**直接编码方式**、**配置文件方式**、**注解方式**。
 
-![1660286777381](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660286777381.png)
+<figure><img src="../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
 
 * 直接编码方式：一般接触不到直接编码的方式，但其实其它的方式最终都要通过直接编码来实现
 * 配置文件方式：通过 xml、propreties 类型的配置文件，配置相应的依赖关系，Spring 读取配置文件，完成依赖关系的注入
@@ -601,7 +606,7 @@ Spring IOC 中 Bean 的生命周期大致分为四个阶段：**实例化**（In
 
 Spring 支持**构造方法注入**、**属性注入**、**工厂方法注入**,其中工厂方法注入，又可以分为**静态工厂方法注入**和**非静态工厂方法注入**
 
-![1660286847916](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660286847916.png)
+<figure><img src="../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
 
 *   **构造方法注入**
 
@@ -718,7 +723,7 @@ Spring 提供的这种方式，可以按照某些规则进行 Bean 的自动装�
 
 Spring 提供了 4 种自动装配类型：
 
-![1660294122061](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660294122061.png)
+<figure><img src="../.gitbook/assets/image (189).png" alt=""><figcaption></figcaption></figure>
 
 * **byName**：根据名称进行自动匹配，假设 Boss 又一个名为 car 的属性，如果容器中刚好有一个名为 car 的 bean，Spring 就会自动将其装配给 Boss 的 car 属性
 * **byType**：根据类型进行自动匹配，假设 Boss 有一个 Car 类型的属性，如果容器中刚好有一个 Car 类型的 Bean，Spring 就会自动将其装配给 Boss 这个属性
@@ -729,7 +734,7 @@ Spring 提供了 4 种自动装配类型：
 
 Spring 的 Bean 主要支持五种作用域：
 
-![1660295407991](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660295407991.png)
+<figure><img src="../.gitbook/assets/image (190).png" alt=""><figcaption></figcaption></figure>
 
 * **singleton** : 在 Spring 容器仅存在一个 Bean 实例，Bean 以单实例的方式存在，是 Bean 默认的作用域
 * **prototype** : 每次从容器重调用 Bean 时，都会返回一个新的实例
@@ -748,7 +753,7 @@ Spring 的 Bean 主要支持五种作用域：
 
 假如这个 Bean 是有状态的，也就是会对 Bean 中的成员变量进行写操作，那么可能就存在线程安全的问题
 
-![1660295935610](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660295935610.png)
+<figure><img src="../.gitbook/assets/image (191).png" alt=""><figcaption></figcaption></figure>
 
 > **单例 Bean 线程安全问题怎么解决呢？**
 
@@ -769,11 +774,11 @@ Spring 的 Bean 主要支持五种作用域：
 
 > **什么是循环依赖？**
 
-![1660296146091](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296146091.png)
+<figure><img src="../.gitbook/assets/image (192).png" alt=""><figcaption></figcaption></figure>
 
 Spring 循环依赖：简单说就是自己依赖自己，或者和别的 Bean 相互依赖
 
-![1660296192246](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296192246.png)
+<figure><img src="../.gitbook/assets/image (193).png" alt=""><figcaption></figcaption></figure>
 
 只有单例的 Bean 才存在循环依赖的情况，**原型**(Prototype)情况下，Spring 会直接抛出异常。原因很简单，AB 循环依赖，A 实例化的时候，发现依赖 B，创建 B 实例，创建 B 的时候发现需要 A，创建 A实例……无限套娃，直接把系统干垮
 
@@ -783,7 +788,7 @@ Spring 不支持基于构造器注入的循环依赖，但是假如 AB 循环依
 
 看看几种情形：
 
-![1660296266590](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296266590.png)
+<figure><img src="../.gitbook/assets/image (194).png" alt=""><figcaption></figcaption></figure>
 
 第四种可以而第五种不可以的原因是 Spring 在创建 Bean 时默认会根据自然排序进行创建，所以 A 会先于 B 进行创建。
 
@@ -793,7 +798,7 @@ Spring 不支持基于构造器注入的循环依赖，但是假如 AB 循环依
 
 单例 Bean 初始化完成，要经历三步：
 
-![1660296505590](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296505590.png)
+<figure><img src="../.gitbook/assets/image (195).png" alt=""><figcaption></figcaption></figure>
 
 注入就发生在第二步，**属性赋值**，结合这个过程，Spring 通过**三级缓存**解决了循环依赖：
 
@@ -801,27 +806,33 @@ Spring 不支持基于构造器注入的循环依赖，但是假如 AB 循环依
 2. 二级缓存 : `Map` **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
 3. 三级缓存 : `Map>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便于后面扩展有机会创建代理对象
 
-![1660296564885](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296564885.png)
+<figure><img src="../.gitbook/assets/image (197).png" alt=""><figcaption></figcaption></figure>
 
-来看一下三级缓存解决循环依赖的过程： ![1660296599548](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296599548.png)
+来看一下三级缓存解决循环依赖的过程：&#x20;
+
+<figure><img src="../.gitbook/assets/image (198).png" alt=""><figcaption></figcaption></figure>
 
 当 A、B 两个类发生循环依赖时：
 
 A 实例的初始化过程：
 
-1.  创建 A 实例，实例化的时候把 A 对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然我这个对象还不完整，但是先曝光出来让大家知道
+创建 A 实例，实例化的时候把 A 对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然我这个对象还不完整，但是先曝光出来让大家知道
 
-    ![1660296662575](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296662575.png)
-2. A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B
-3.  同样，B 注⼊属性时发现依赖 A，它就会从缓存里找 A 对象。依次从⼀级到三级缓存查询 A，从三级缓存通过对象⼯⼚拿到 A，发现 A 虽然不太完善，但是存在，把 A 放⼊⼆级缓存，同时删除三级缓存中的 A，此时，B 已经实例化并且初始化完成，把 B 放入⼀级缓存
+<figure><img src="../.gitbook/assets/image (199).png" alt=""><figcaption></figcaption></figure>
 
-    ![1660296741442](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296741442.png)
-4. 接着 A 继续属性赋值，顺利从⼀级缓存拿到实例化且初始化完成的 B 对象，A 对象创建也完成，删除⼆级缓存中的 A，同时把 A 放⼊⼀级缓存
-5.  最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象
+A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B
 
-    ![1660296778610](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660296778610.png)
+同样，B 注⼊属性时发现依赖 A，它就会从缓存里找 A 对象。依次从⼀级到三级缓存查询 A，从三级缓存通过对象⼯⼚拿到 A，发现 A 虽然不太完善，但是存在，把 A 放⼊⼆级缓存，同时删除三级缓存中的 A，此时，B 已经实例化并且初始化完成，把 B 放入⼀级缓存
 
-    所以，就知道为什么 Spring 能解决 setter 注入的循环依赖了，因为实例化和属性赋值是分开的，所以里面有操作的空间。如果都是构造器注入的化，那么都得在实例化这一步完成注入，所以自然是无法支持了
+<figure><img src="../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
+
+接着 A 继续属性赋值，顺利从⼀级缓存拿到实例化且初始化完成的 B 对象，A 对象创建也完成，删除⼆级缓存中的 A，同时把 A 放⼊⼀级缓存
+
+最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象
+
+<figure><img src="../.gitbook/assets/image (201).png" alt=""><figcaption></figcaption></figure>
+
+所以，就知道为什么 Spring 能解决 setter 注入的循环依赖了，因为实例化和属性赋值是分开的，所以里面有操作的空间。如果都是构造器注入的化，那么都得在实例化这一步完成注入，所以自然是无法支持了
 
 ### **13、为什么要三级缓存？⼆级不⾏吗？**
 
@@ -831,7 +842,7 @@ A 实例的初始化过程：
 
 假设只有⼆级缓存的情况，往⼆级缓存中放的显示⼀个普通的 Bean 对象，Bean 初始化过程中，通过 BeanPostProcessor 去⽣成代理对象之后，覆盖掉⼆级缓存中的普通 Bean 对象，那么可能就导致取到的 Bean 对象不一致了
 
-![1660297232196](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660297232196.png)
+<figure><img src="../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
 
 ### **14、@Autowired 的实现原理？**
 
@@ -902,19 +913,19 @@ A 实例的初始化过程：
 
 AOP：面向切面编程。简单说，就是把一些业务逻辑中的相同的代码抽取到一个独立的模块中，让业务逻辑更加清爽
 
-![1660297847724](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660297847724.png)
+<figure><img src="../.gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
 
 具体来说，假如我现在要 crud 写一堆业务，可是如何业务代码前后前后进行打印日志和参数的校验呢？
 
 可以把`日志记录`和`数据校验`可重用的功能模块分离出来，然后在程序的执行的合适的地方动态地植入这些代码并执行。这样就简化了代码的书写
 
-![1660297872995](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660297872995.png)
+<figure><img src="../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>
 
 业务逻辑代码中没有参和通用逻辑的代码，业务模块更简洁，只包含核心业务代码。实现了业务逻辑和通用逻辑的代码分离，便于维护和升级，降低了业务逻辑和通用逻辑的耦合性
 
 AOP 可以将遍布应用各处的功能分离出来形成可重用的组件。在编译期间、装载期间或运行期间实现在不修改源代码的情况下给程序动态添加功能。从而实现对业务逻辑的隔离，提高代码的模块化能力
 
-![1660297902690](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660297902690.png)
+<figure><img src="../.gitbook/assets/image (205).png" alt=""><figcaption></figcaption></figure>
 
 AOP 的核心其实就是**动态代理**，如果是实现了接口的话就会使用 JDK 动态代理，否则使用 CGLIB 代理，主要应用于处理一些具有横切性质的系统级服务，如日志收集、事务管理、安全检查、缓存、对象池管理等
 
@@ -943,7 +954,7 @@ AOP 一般有 **5 种**环绕方式：
 * 后置通知 (@After)
 * 环绕通知 (@Around)
 
-![1660298084090](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660298084090.png)
+<figure><img src="../.gitbook/assets/image (206).png" alt=""><figcaption></figcaption></figure>
 
 多个切面的情况下，可以通过 @Order 指定先后顺序，数字越小，优先级越高
 
@@ -1050,7 +1061,7 @@ public String hello(String name){
 
 * 执行结果：可以看到日志打印了入参、出参和执行时间
 
-![1660298438613](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660298438613.png)
+<figure><img src="../.gitbook/assets/image (207).png" alt=""><figcaption></figcaption></figure>
 
 ### **3、JDK 动态代理和 CGLIB 代理？**
 
@@ -1068,9 +1079,13 @@ Spring 的 AOP 是通过 动态代理 来实现的，动态代理主要有两种
 2. CgLib 动态代理是使用字节码处理框架 **ASM**，其原理是通过字节码技术为一个类创建子类，并在子类中采用方法拦截的技术拦截所有父类方法的调用，顺势织入横切逻辑
 3. **CgLib** 创建的动态代理对象性能比 JDK 创建的动态代理对象的性能高不少，但是 CGLib 在创建代理对象时所花费的时间却比 JDK 多得多，所以对于单例的对象，因为无需频繁创建对象，用 CGLib 合适，反之，使用 JDK 方式要更为合适一些。同时，由于 CGLib 由于是采用动态创建子类的方法，对于 final 方法，无法进行代理
 
-来看一个常见的小场景，客服中转，解决用户问题： ![1660299070972](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660299070972.png)
+来看一个常见的小场景，客服中转，解决用户问题：&#x20;
 
-**JDK 动态代理实现：** ![1660299090331](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660299090331.png)
+<figure><img src="../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
+
+**JDK 动态代理实现：**&#x20;
+
+<figure><img src="../.gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
 
 *   接口
 
@@ -1134,7 +1149,7 @@ Spring 的 AOP 是通过 动态代理 来实现的，动态代理主要有两种
 
 **Cglib 动态代理实现：**
 
-![1660299619271](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660299619271.png)
+<figure><img src="../.gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>
 
 *   目标类：Solver，这里目标类不用再实现接口。
 
@@ -1213,7 +1228,9 @@ AspectJ 属于**静态织入**，通过修改代码来实现，在实际运行�
 2. 编译后织入（Post-compile weaving）：也就是已经生成了 .class 文件，或已经打成 jar 包了，这种情况我们需要增强处理的话，就要用到编译后织入。
 3. 类加载后织入（Load-time weaving）：指的是在加载类的时候进行织入，要实现这个时期的织入，有几种常见的方法
 
-整体对比如下：![1660300088174](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660300088174.png)
+整体对比如下：
+
+<figure><img src="../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -1223,7 +1240,7 @@ Spring 事务的本质其实就是数据库对事务的支持，没有数据库�
 
 ### **1、Spring 事务的种类？**
 
-Spring 支持`编程式事务`管理和`声明式`事务管理两种方式： ![1660452283187](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660452283187.png)
+Spring 支持`编程式事务`管理和`声明式`事务管理两种方式：&#x20;
 
 1.  **编程式事务**
 
@@ -1248,7 +1265,9 @@ Spring 的接口 TransactionDefinition 中定义了表示隔离级别的常量�
 
 Spring 事务的传播机制说的是，当多个事务同时存在的时候；一般指的是多个事务方法相互调用时，Spring 如何处理这些事务的行为
 
-事务传播机制是使用简单的 ThreadLocal 实现的，所以，如果调用的方法是在新线程调用的，事务传播实际上是会失效的![1660452543604](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660452543604.png)
+事务传播机制是使用简单的 ThreadLocal 实现的，所以，如果调用的方法是在新线程调用的，事务传播实际上是会失效的
+
+<figure><img src="../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
 
 Spring 默认的事务传播行为是 PROPAFATION\_REQUIRED，它适合绝大多数情况，如果多个 ServiceX#methodX()都工作在事务环境下（均被 Spring 事务增强），且程序中存在调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的三个方法通过 Spring 的事务传播机制都工作在同一个事务中
 
@@ -1257,17 +1276,17 @@ Spring 默认的事务传播行为是 PROPAFATION\_REQUIRED，它适合绝大多
 就是通过 AOP/动态代理
 
 * **在 Bean 初始化阶段创建代理对象**：Spring 容器在初始化每个单例 bean 的时候，会遍历容器中的所有 BeanPostProcessor 实现类，并执行其 postProcessAfterInitialization 方法，在执行 AbstractAutoProxyCreator 类的 postProcessAfterInitialization 方法时会遍历容器中所有的切面，查找与当前实例化 bean 匹配的切面，这里会获取事务属性切面，查找@Transactional 注解及其属性值，然后根据得到的切面创建一个代理对象，默认是使用 JDK 动态代理创建代理，如果目标类是接口，则使用 JDK 动态代理，否则使用 Cglib。
-*   **在执行目标方法时进行事务增强操作**：当通过代理对象调用 Bean 方法的时候，会触发对应的 AOP 增强拦截器，声明式事务是一种环绕增强，对应接口为`MethodInterceptor`，事务增强对该接口的实现为`TransactionInterceptor`，类图如下
+* **在执行目标方法时进行事务增强操作**：当通过代理对象调用 Bean 方法的时候，会触发对应的 AOP 增强拦截器，声明式事务是一种环绕增强，对应接口为`MethodInterceptor`，事务增强对该接口的实现为`TransactionInterceptor`，类图如下
 
-    ![1660452873519](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660452873519.png)
+<figure><img src="../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
 
 事务拦截器`TransactionInterceptor`在`invoke`方法中，通过调用父类`TransactionAspectSupport`的`invokeWithinTransaction`方法进行事务处理，包括开启事务、事务提交、异常回滚
 
 ### **5、声明式事务在哪些情况下会失效？**
 
-![1660453128617](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660453128617.png)
+<figure><img src="../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
 
-**1、@Transactional 应用在非 public 修饰的方法上**
+#### **1、@Transactional 应用在非 public 修饰的方法上**
 
 如果 Transactional 注解应用在非 public 修饰的方法上，Transactional 将会失效。
 
@@ -1284,15 +1303,17 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
 
 此方法会检查目标方法的修饰符是否为 public，不是 public 则不会获取@Transactional 的属性配置信息
 
-### **2、@Transactional 注解属性 propagation 设置错误**
+#### **2、@Transactional 注解属性 propagation 设置错误**
 
 * TransactionDefinition.PROPAGATION\_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行
 * TransactionDefinition.PROPAGATION\_NOT\_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起
 * TransactionDefinition.PROPAGATION\_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常
 
-### **3、@Transactional 注解属性 rollbackFor 设置错误**
+#### **3、@Transactional 注解属性 rollbackFor 设置错误**
 
-rollbackFor 可以指定能够触发事务回滚的异常类型。Spring 默认抛出了未检查 unchecked 异常（继承自 RuntimeException 的异常）或者 Error 才回滚事务，其他异常不会触发回滚事务![1660453412116](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660453412116.png)
+rollbackFor 可以指定能够触发事务回滚的异常类型。Spring 默认抛出了未检查 unchecked 异常（继承自 RuntimeException 的异常）或者 Error 才回滚事务，其他异常不会触发回滚事务
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 // 希望自定义的异常可以进行回滚
@@ -1301,7 +1322,7 @@ rollbackFor 可以指定能够触发事务回滚的异常类型。Spring 默认�
 
 若在目标方法中抛出的异常是 rollbackFor 指定的异常的子类，事务同样会回滚
 
-### **4、同一个类中方法调用，导致@Transactional 失效**
+#### **4、同一个类中方法调用，导致@Transactional 失效**
 
 开发中避免不了会对同一个类里面的方法调用，比如有一个类 Test，它的一个方法 A，A 再调用本类的方法 B（不论方法 B 是用 public 还是 private 修饰），但方法 A 没有声明注解事务，而 B 方法有。则外部调用方法 A 之后，方法 B 的事务是不会起作用的；这也是经常犯错误的一个地方。
 
@@ -1378,7 +1399,7 @@ private Integer A() throws Exception {
 
 ### **2、Spring MVC 的工作流程？**
 
-![1660453873233](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660453873233.png)
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 1. 客户端向服务端发送一次请求，这个请求会先到前端控制器 DispatcherServlet(也叫中央控制器)
 2. DispatcherServlet 接收到请求后会调用 HandlerMapping 处理器映射器。由此得知，该请求该由哪个 Controller 来处理（并未调用 Controller，只是得知）
@@ -1408,7 +1429,7 @@ public User user(){
 
 加入了这个注解后，整体的流程上和使用 ModelAndView 大体上相同，但是细节上有一些不同：
 
-![1660454070522](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660454070522.png)
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 1. 客户端向服务端发送一次请求，这个请求会先到前端控制器 DispatcherServlet
 2. DispatcherServlet 接收到请求后会调用 HandlerMapping 处理器映射器。由此得知，该请求该由哪个 Controller 来处理
@@ -1444,7 +1465,7 @@ Spring Boot 以`约定大于配置`核心思想开展工作，相比 Spring 具�
 
 SpringBoot 开启自动配置的注解是`@EnableAutoConfiguration` ，启动类上的注解`@SpringBootApplication`是一个复合注解，包含了@EnableAutoConfiguration：
 
-![1660455567239](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660455567239.png)
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 *   `EnableAutoConfiguration` 只是一个简单的注解，自动装配核心功能的实现实际是通过 `AutoConfigurationImportSelector`类
 
@@ -1567,9 +1588,9 @@ protected AutoConfigurationImportSelector.AutoConfigurationEntry getAutoConfigur
     }
     ```
 
-    *   运行结果
+    * 运行结果
 
-        ![1660456302048](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660456302048.png)
+    <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
     至此，随手写的一个自定义 SpringBoot-Starter 就完成了，虽然比较简单，但是完成了主要的自动装配的能力
 
@@ -1582,10 +1603,6 @@ SpringApplication 这个类主要做了以下四件事情：
 3. 找出所有的应用程序监听器，设置到 listeners 属性中
 4. 推断并设置 main 方法的定义类，找到运行的主类
 
-SpringBoot 启动大致流程如下 ：
-
-![1660456566146](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660456566146.png)
-
 ***
 
 ## Spring Cloud <a href="#user-content-spring-cloud" id="user-content-spring-cloud"></a>
@@ -1594,7 +1611,7 @@ SpringBoot 启动大致流程如下 ：
 
 SpringCloud 是 Spring 官方推出的微服务治理框架
 
-![1660456648767](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/1660456648767.png)
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 > **什么是微服务？**
 
@@ -1616,4 +1633,6 @@ SpringCloud 是 Spring 官方推出的微服务治理框架
 
 > **SpringCloud 有哪些核心组件？**
 
-![1660456648767](https://gitee.com/yifanstudy/interview-spring/raw/master/Spring.assets/spring-cloud.png)PS:微服务后面有机会再扩展，其实面试一般都是结合项目去问
+<figure><img src="../.gitbook/assets/spring-cloud.png" alt=""><figcaption></figcaption></figure>
+
+PS:微服务后面有机会再扩展，其实面试一般都是结合项目去问

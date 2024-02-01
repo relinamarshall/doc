@@ -279,7 +279,7 @@ JDK1.8的数据结构是`数组+链表+红黑树`
 * 每个红色节点的两个子节点一定都是黑色
 * 从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>红黑树</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>红黑树</p></figcaption></figure>
 
 > 之所以不用二叉树
 
@@ -295,17 +295,17 @@ JDK1.8的数据结构是`数组+链表+红黑树`
 
 * 旋转：旋转分为两种，左旋和右旋
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>旋转</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>旋转</p></figcaption></figure>
 
 * 染色
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>染色</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>染色</p></figcaption></figure>
 
 ### **4、HashMap的put流程知道吗？**
 
 流程图：
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>HashMap.put</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>HashMap.put</p></figcaption></figure>
 
 * 首先进行哈希值的扰动，获取一个新的哈希值；`(key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16)`
 *   判断tab数组是否为空或者长度为0，如果是则进行扩容操作
@@ -323,7 +323,7 @@ JDK1.8的数据结构是`数组+链表+红黑树`
 
 流程图：
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>HashMap.get</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>HashMap.get</p></figcaption></figure>
 
 * 使用扰动函数，获取新的哈希值
 * 计算数组下标，获取节点
@@ -368,13 +368,13 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 
 这也正好解释了为什么HashMap的数组长度要取2的整数幂；因为这样(数组长度-1)正好相当于一个"低位掩码"；`与`操作的结果就是散列值的高位全部归零，只保留低位值，用来做数组下标访问；以初始长度16为例，16-1=15；2进制表示为`0000 0000 0000 0000 0000 0000 0000 1111`；和某个散列值做`与`操作如下，结果就是截取了最低的四位值
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>数组长度减一取模</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>数组长度减一取模</p></figcaption></figure>
 
 这样是要快捷一些，但是新的问题来了，就算散列值分布再松散，要是只取最后几位的话，碰撞也会很严重；如果散列本身做得不好，分布上成等差数列的漏洞，如果正好让最后几个低位呈现规律性重复，那就更难搞了
 
 这时候`扰动函数`的价值就体现出来了，看一下扰动函数的示意图：
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>扰动函数</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption><p>扰动函数</p></figcaption></figure>
 
 右移16位，正好是32bit的一半，自己的高半区和低半区做异或，就是为了混合原始哈希码的高位和低位，以此来加大低位的随机性；而且混合后的低位掺杂了高位的部分特征，这样高位的信息也被变相保留下来
 
@@ -389,7 +389,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 
     可以简单看看HashMap的扩容机制，Hash Map中的元素在超过`负载因子*HashMap的大小`时就会产生扩容
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>HashMap扩容</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption><p>HashMap扩容</p></figcaption></figure>
 
 ### **9、如果初始化HashMap，传入一个17的值，他会怎么处理？**
 
@@ -423,7 +423,7 @@ static final int tableSizeFor(int cap) {
 * MAXIMUM\_CAPACITY = 1 << 30，这个是临界范围，也就是最大的Map集合
 * 计算过程是向右移位1、2、4、8、16，和原来的数做`|`或运算，这主要是为了把二进制的各个位置都填上1，当二进制的哥哥位置都是1以后，就是一个标准的2的倍数减一了，最后把结果加1再返回即可
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>初始化过程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>初始化过程</p></figcaption></figure>
 
 ### **10、还知道哪些哈希函数的构造方法呢？**
 
@@ -445,7 +445,7 @@ HashMap里哈希构造函数的方法叫：
 
     将key分割成位数相同的几段，然后把它们的叠加和作为映射位置
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>hash方法</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption><p>hash方法</p></figcaption></figure>
 
 ### **11、解决哈希冲突有哪些方法？**
 
@@ -461,7 +461,7 @@ HashMap中使用链表的原因就是为了处理哈希冲突，这种方法就�
     * 线性探测法：从冲突的位置开始，依次判断下一个位置是否空闲，直至找到空闲位置
     * 平方探测法：从冲突的位置x开始，第一次增加`1^2`个位置，第二次增加`2^2`...，直到找到空闲的位置
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>链地址、开放定址</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>链地址、开放定址</p></figcaption></figure>
 
 * **再哈希法**：换种哈希函数，重新计算冲突元素的地址
 * **建立公共溢出区**：再建一个数组，把冲突的元素放进去
@@ -472,7 +472,7 @@ HashMap中使用链表的原因就是为了处理哈希冲突，这种方法就�
 
 为什么是8呢？源码的注释也给出了答案
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>转红黑树的阈值注释</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption><p>转红黑树的阈值注释</p></figcaption></figure>
 
 红黑树节点的大小大概是普通节点大小的两倍，所以转红黑树，牺牲了空间换时间，更多的是一种兜底的策略，保证极端情况下的查找效率
 
@@ -484,13 +484,13 @@ HashMap中使用链表的原因就是为了处理哈希冲突，这种方法就�
 
 为了减少哈希冲突发生的概率，当前HashMap的元素个数达到一个临界值的时候，就会触发扩容，把所有元素rehash之后再放在扩容后的容器中，这是一个相当耗时的操作
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>扩容</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption><p>扩容</p></figcaption></figure>
 
 而这个`临界值threshold`就是由加载因子和当前容器的容量大小来确定的，假如采用默认的构造方法：
 
 > 临界值（threshold）= 默认容量（DEFAULT\_INITIAL\_CAPACITY）\* 默认加载因子（DEFAULT\_LOAD\_FACTOR）
 
-<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption><p>临界值</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption><p>临界值</p></figcaption></figure>
 
 那就是大于`16x0.75=12`时，就会触发扩容操作
 
@@ -500,7 +500,7 @@ HashMap中使用链表的原因就是为了处理哈希冲突，这种方法就�
 
 在HashMap中有这样一段注释：
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption><p>HashMap加载因子</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption><p>HashMap加载因子</p></figcaption></figure>
 
 HashMap的散列构造方式是Hash取余，负载因子决定元素个数达到多少时扩容
 
@@ -518,15 +518,15 @@ HashMap是基于数组+链表+红黑树实现的，但用于存放key值得桶�
 
 看下图，n为table的长度，图`a`表示扩容前的key1和key2两种key确定索引的位置，图`b`表示扩容后key1和key2两种key确定索引位置
 
-<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>扩容后索引位置</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption><p>扩容后索引位置</p></figcaption></figure>
 
 元素在重新计算hash之后，因为n变成2倍，那么n-1的mask范围在高位多1bit(红色)，因此新的index就会发生这样的变化：
 
-<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption><p>索引变化</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption><p>索引变化</p></figcaption></figure>
 
 所以在扩容时，只需要看原来的hash值新增的那一位是0还是1就行了，是0的话索引没变，是1的话变成`原索引+oldCap`，看看如16扩容为32的示意图：
 
-<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>16扩容32</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption><p>16扩容32</p></figcaption></figure>
 
 扩容节点迁移主要逻辑：
 
@@ -608,7 +608,7 @@ JDK1.8的HashMap主要有五个优化：
 * 冲突解决：链地址法
 * 扩容：节点重新hash获取位置
 
-<figure><img src="../.gitbook/assets/image (18) (1).png" alt=""><figcaption><p>HashMap手写的设计点</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption><p>HashMap手写的设计点</p></figcaption></figure>
 
 ```java
 /**
@@ -832,7 +832,7 @@ ConcurrentHashMap线程安全在JDK7版本是基于`分段锁`实现；在JDK8�
 
 实际上就是相当于每个Segment都是一个HashMap，默认的Segement长度是16，也就是支持16线程的并发写，Segment之间相互不会受到影响
 
-<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>JDK7分段锁</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption><p>JDK7分段锁</p></figcaption></figure>
 
 **Put流程**
 

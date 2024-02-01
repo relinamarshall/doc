@@ -151,7 +151,7 @@ layout:
 
 **MyBatis的工作原理如下图**
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>MyBatis工作原理</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>MyBatis工作原理</p></figcaption></figure>
 
 * 1、读取MyBatis配置文件：mybatis-config.xml为MyBatis的全局配置文件，配置了MyBatis的运行环境等信息，列如数据库连接信息
 * 2、加载映射文件，映射文件即SQL映射文件，该文件配置了操作数据库的SQl语句，需要在MyBatis配置文件mybatis-config.xml中加载；mybatis-config.xml文件可以加载多个映射文件，每个文件对应数据库中的一张表
@@ -164,7 +164,7 @@ layout:
 
 ### **3、Mybatis的功能架构是怎样的？**
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>MyBatis架构</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>MyBatis架构</p></figcaption></figure>
 
 **我们可以把MyBatis的功能架构分为三层：**
 
@@ -174,7 +174,7 @@ layout:
 
 ### **4、MyBatis框架架构设计是怎么样的？**
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>MyBatis框架架构</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>MyBatis框架架构</p></figcaption></figure>
 
 * 这张图从上往下看；MyBatis的初始化，会从mybatis-config.xml配置文件，解析构造成Configguration这个类，途中的红框
 * 1、加载配置：配置来源于两个地方，一处是配置文件，一处是Java代码的注解，将SQL的配置信息加载成为一个个MappedStatement对象（包括了传入参数映射配置、执行的SQL语句、结果映射配置），存储在内存中
@@ -579,12 +579,12 @@ layout:
 
 ### **20、简述MyBatis的插件运行原理，以及如何编写一个插件？**
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>插件运行原理</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>插件运行原理</p></figcaption></figure>
 
 * Mybatis会话的运行需要ParameterHandler、ResultSetHandler、StatementHandler、Executor这四大对象的配合，插件的原理就是在这四大对象调度的时候，插入一些我我们自己的代码
 * Mybatis使用JDK的动态代理，为目标对象生成代理对象。它提供了一个工具类`Plugin`，实现了`InvocationHandler`接口
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Intercept</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>Intercept</p></figcaption></figure>
 
 * 使用`Plugin`生成代理对象，代理对象在调用方法的时候，就会进入invoke方法，在invoke方法中，如果存在签名的拦截方法，插件的intercept方法就会在这里被我们调用，然后就返回结果。如果不存在签名方法，那么将直接反射调用我们要执行的方法
 
@@ -653,7 +653,7 @@ layout:
 
 四个字回答：**动态代理**，看一下获取Mapper的过程
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>Mapper获取过程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Mapper获取过程</p></figcaption></figure>
 
 *   获取Mapper：我们都知道定义的Mapper接口是没有实现类的，Mapper映射其实是通过动态代理实现的
 

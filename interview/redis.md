@@ -562,20 +562,20 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
 一个并发访问量比较大的key在某个时间过期，导致所有的请求直接打在DB上
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 解决⽅案：
 
 1. 加锁更新，⽐如请求查询A，发现缓存中没有，对A这个key加锁，同时去数据库查询数据，写⼊缓存，再返回给⽤户，这样后⾯的请求就可以从缓存中拿到数据了
 2. 将过期时间组合写在value中，通过异步的⽅式不断的刷新过期时间，防⽌此类现象
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **缓存穿透**
 
 缓存穿透指的查询缓存和数据库中都不存在的数据，这样每次请求直接打到数据库，就好像缓存不存在一样
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 缓存穿透将导致不存在的数据每次请求都要到存储层去查询，失去了缓存保护后端存储的意义
 
@@ -592,7 +592,7 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
     一种方式是在数据库不命中之后，把一个空对象或者默认值保存到缓存，之后再访问这个数据，就会从缓存中获取，这样就保护了数据库
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 缓存空值有两大问题：
 
@@ -603,17 +603,17 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
     布隆过滤器里会保存数据是否存在，如果判断数据不不能再，就不会访问存储
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 两种解决方案的对比：
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 **缓存雪崩**
 
 某⼀时刻发⽣⼤规模的缓存失效的情况，例如缓存服务宕机、大量key在同一时间过期，这样的后果就是⼤量的请求进来直接打到DB上，可能导致整个系统的崩溃，称为雪崩
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 缓存雪崩是三大缓存问题里最严重的一种，来看看怎么预防和处理。
 
@@ -638,7 +638,7 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
 存储数据的时时候，使用K个不同的哈希函数将这个变量映射为bit列表的的K个点，把它们置为1
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 判断缓存key是否存在，同样，K个哈希函数，映射到bit列表上的K个点，判断是不是1：
 
@@ -660,7 +660,7 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
 相比较而言，删除缓存的速度比更新缓存的速度快很多，所用时间相对也少很多，读脏数据的概率也小很 多
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 **2.先更数据，后删缓存** 先更数据库还是先删缓存？这是一个问题
 
@@ -668,7 +668,7 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
 毫无疑问，先删缓存，再更数据库，缓存中key不存在的时间的时间更长，有更大的概率会产生脏数据
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 目前最流行的缓存读写策略cache-aside-pattern就是采用先更数据库，再删缓存的方式
 
@@ -683,17 +683,17 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 * 缓存key删除失败
 * 并发导致写入了脏数据
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 **消息队列保证key被删除** 可以引入消息队列，把要删除的key或者删除失败的key丢尽消息队列，利用消息队列的重试机制，重试删除对应的key
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 这种方案看起来不错，缺点是对业务代码有一定的侵入性
 
 **数据库订阅+消息队列保证key被删除** 可以用一个服务（比如阿里的 canal）去监听数据库的binlog，获取需要操作的数据；然后用一个公共的服务获取订阅程序传来的信息，进行缓存删除操作
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 这种方式降低了对业务的侵入，但其实整个系统的复杂度是提升的，适合基建完善的大厂。
 
@@ -701,7 +701,7 @@ PS:这是多年黄历的老八股了，一定要理解清楚
 
 简单说，就是在第一次删除缓存之后，过了一段时间之后，再次删除缓存
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 这种方式的延时时间设置需要仔细考量和测试
 
@@ -719,13 +719,13 @@ PS:这道题面试很少问，但实际工作中很常见
 
 那么问题来了，本地缓存和分布式缓存怎么保持数据一致？
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 Redis缓存，数据库发生更新，直接删除缓存的key即可，因为对于应用系统而言，它是一种中心化的缓存
 
 但是本地缓存，它是非中心化的，散落在分布式服务的各个节点上，没法通过客户端的请求删除本地缓存的key，所以得想办法通知集群所有节点，删除对应的本地缓存key
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 可以采用消息队列的方式：
 
@@ -743,7 +743,7 @@ Redis缓存，数据库发生更新，直接删除缓存的key即可，因为对
 
 > **怎么处理热key？**
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 对热key的处理，最关键的是对热点key的监控，可以从这些端来监控热点key：
 
@@ -843,7 +843,7 @@ Redis主要有2种过期数据回收策略：
 
 Redis所用内存达到maxmemory上限时会触发相应的溢出控制策略，Redis支持六种策略：
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. noeviction：默认策略，不会删除任何数据，拒绝所有写入操作并返 回客户端错误信息，此时Redis只响应读操作
 2. volatile-lru：根据LRU算法（ 最近最少使用的key ）删除设置了超时属性（expire）的键，直到腾出足够空间为止；如果没有可删除的键对象，回退到noeviction策略
