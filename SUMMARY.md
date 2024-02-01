@@ -26,3 +26,4 @@
 * [JavaThead](interview/javathead.md)
 * [JavaJVM](interview/javajvm.md)
 * [Mybatis](interview/mybatis.md)
+* [Redis](interview/redis.md)

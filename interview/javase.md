@@ -39,7 +39,7 @@ Java语言有很多优秀的特点，以下几点是比较突出的：
 
 简单来说：JDK包含JRE，JRE包含JVM
 
-<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption><p>JDK</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38) (1).png" alt=""><figcaption><p>JDK</p></figcaption></figure>
 
 ### **跨平台性**
 
@@ -57,7 +57,7 @@ Java程序从源代码到运行主要有三步：
 * 解释：虚拟机执行Java字节码，将字节码翻译成机器能识别的机器码
 * 执行：对应的机器执行二进制机器码
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Java源码运行步骤</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Java源码运行步骤</p></figcaption></figure>
 
 只需要把Java程序编译成Java虚拟机能识别的Java字节码，不同的平台安装对应的Java虚拟机，这样就可以实现Java语言的平台无关性
 
@@ -71,7 +71,7 @@ Java程序从源代码到运行主要有三步：
 
 Java语言既具有编译型语言的特征，也具有解释型语言的特征，因为Java程序要经过先编译，后解释两个步骤，由Java编写的程序需要先经过编译步骤，生成字节码(.class)文件，这种字节码必须再进过JVM，解释成操作系统能识别的机器码，在由操作系统执行；因此，可以认为Java语言编译与解释并存
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>编译与解释并存</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>编译与解释并存</p></figcaption></figure>
 
 ***
 
@@ -83,7 +83,7 @@ Java语言既具有编译型语言的特征，也具有解释型语言的特征�
 
 Java语言数据类型分为两种：**基本数据类型**和**引用数据类型**
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>Java数据类型</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Java数据类型</p></figcaption></figure>
 
 基本数据类型：
 
@@ -116,7 +116,7 @@ Java基本数据类型范围和默认值
 
 Java所有的数值型变量可以相互转换，当把一个表数范围小的数值或变量直接赋给另一个表述范围大变量时，可以进行自动类型转换；反之，需要强制类型转换
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>自动类型转换</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption><p>自动类型转换</p></figcaption></figure>
 
 这就好像，小杯里的水倒进大杯没问题，但大杯的水倒进小杯就不行，可能会溢出
 
@@ -137,7 +137,7 @@ Java所有的数值型变量可以相互转换，当把一个表数范围小的�
 
 Java 可以自动对基本数据类型和它们的包装类进行装箱和拆箱
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>自动拆箱装箱</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption><p>自动拆箱装箱</p></figcaption></figure>
 
 ```java
 Integer i = 10;
@@ -170,7 +170,7 @@ Java5以前Switch(expr)中，expr只能是byte、short、char、int
 * continue：跳出本次循环，继续执行下次循环(结束正在执行的循环 进入下一个循环条件)
 * return：程序返回，不在执行下面的代码(结束当前的方法 直接返回)
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>区别</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>区别</p></figcaption></figure>
 
 ### **用最有效率的方法计算2乘以8**
 
@@ -243,11 +243,11 @@ int autoAdd(int count){
 
 用一个比喻：面向过程是编年体；面向对象是纪传体
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>面向对象面向过程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>面向对象面向过程</p></figcaption></figure>
 
 ### **面向对象特征**
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>三大特征</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption><p>三大特征</p></figcaption></figure>
 
 * 封装
   * 封装把一个对象的属性私有化，同时提供一些可以被外界访问的属性的方法
@@ -283,7 +283,7 @@ Java中，可以使用访问控制符来保护对类、变量、方法和构造�
 * **public**：对所有类可见；可以修饰类、接口、变量、方法
 * **protected**：对同一包内的类和所有子类可见；可以修饰变量、方法；注意：不能修饰类(外部类)
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>访问修饰符</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption><p>访问修饰符</p></figcaption></figure>
 
 ### **this关键字**
 
@@ -339,7 +339,7 @@ final表示不可变的意思，可用于修饰类、属性和方法：
     System.out.println(sb);  //abcd
     ```
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption><p>final变量引用不可变</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption><p>final变量引用不可变</p></figcaption></figure>
 
 ### **final、finally、finalize**
 
@@ -412,7 +412,7 @@ JVM的内存分为堆和栈，其中栈中存储了基本数据类型和引用�
 
 而对象所占的空间实在堆中开辟的，所以传递的时候可以理解为把变量存储的对象地址给传过去，因此引用类型也是值传递
 
-<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>值传递</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1) (1).png" alt=""><figcaption><p>值传递</p></figcaption></figure>
 
 * 值传递（pass by value）是指在调用函数时将实际参数`复制`一份传递到函数中，这样在函数中如果对`参数`进行修改，将不会影响到实际参数。
 * 引用传递（pass by reference）是指在调用函数时将实际参数的地址`直接`传递到函数中，那么在函数中对`参数`所进行的修改，将影响到实际参数
@@ -428,7 +428,7 @@ JVM的内存分为堆和栈，其中栈中存储了基本数据类型和引用�
 
 例如现在有一个order对象，里面有一个products列表，它的浅拷贝和深拷贝的示意图：
 
-<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption><p>深浅拷贝</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption><p>深浅拷贝</p></figcaption></figure>
 
 因此深拷贝是安全的，浅拷贝的话如果有引用类型，那么拷贝后对象，引用类型变量修改，会影响原对象
 
@@ -519,13 +519,13 @@ public class LifeCycle {
 
 通过下面的流程来对对象的生命周期做个总结：
 
-<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>对象生命周期</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption><p>对象生命周期</p></figcaption></figure>
 
 对象被创建并初始化，对象在运行时被使用，然后离开对象的作用域，对象会变成不可达并会被垃圾回收器回收；途中用红色表明的区域表示对象处于强可达阶段
 
 JDK1.2介绍了`java.lang.ref`包，对象的生命周期有四个阶段：`强可达(Strongly Reachable)、软可达(Soft Reachable)、弱可达(Weak Reachable)、虚可达(Phantom Reachabel)`
 
-<figure><img src="../.gitbook/assets/image (18) (1).png" alt=""><figcaption><p>java.lang.ref</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption><p>java.lang.ref</p></figcaption></figure>
 
 如果只讨论符合垃圾回收条件的对象，那么只有三种：软可达、弱可达和虚可达
 
@@ -540,7 +540,7 @@ JDK1.2介绍了`java.lang.ref`包，对象的生命周期有四个阶段：`强�
 
 下图是一个不同可达性状态的转换图：
 
-<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>可达性转换图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption><p>可达性转换图</p></figcaption></figure>
 
 判断可达性条件，也是JVM垃圾回收器决定如何处理对象的一部分考虑因素
 
@@ -744,7 +744,7 @@ String 是一个比较特殊的引用数据类型
 
 两个语句都会去字符串常量池中检查是否已经存在"abc"，如果有则直接使用，如果没有则会在常量池中创建“abc"对象
 
-<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption><p>字符串常量池</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption><p>字符串常量池</p></figcaption></figure>
 
 但是不同的是，String str1 = new String("abc")还会通过new String()在堆里创建一个”abc“字符串对象的实例；所以厚泽可以理解为被前者包含
 
@@ -773,7 +773,7 @@ String ab = a + b;
 
 内存如下：
 
-<figure><img src="../.gitbook/assets/image (21) (1).png" alt=""><figcaption><p>字符串拼接</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption><p>字符串拼接</p></figcaption></figure>
 
 在Java8时JDK对“**+**”号拼接进行了优化，上面所写的拼接方式会被优化为基于StringBuilder的append方法进行处理；Java会在编译期对“**+**”号进行处理
 
@@ -891,7 +891,7 @@ private void StringOverrideEquals(){
 * 然后第二条语句返回false，因为s1返回的是常量池中的对象，而s2返回的是堆中的对象
 * 第三条语句s3.intern.equals(s1)，返回true，因为s3对象虽然在堆中创建了一个对象，但是s3中的“aaa”返回的是常量池中的对象
 
-<figure><img src="../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>结果</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (22) (1) (1).png" alt=""><figcaption><p>结果</p></figcaption></figure>
 
 ***
 
@@ -928,7 +928,7 @@ public static void main(String[] args) {
 
 实现的原理是int在自动装箱的时候会调用Integer.valueOf，进而用到了IntegerCache
 
-<figure><img src="../.gitbook/assets/image (23) (1).png" alt=""><figcaption><p>IntegerValueOf</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23) (1) (1).png" alt=""><figcaption><p>IntegerValueOf</p></figcaption></figure>
 
 很简单，就是判断下值是否在缓存范围之内，如果是的话去IntegerCache中取，不是的话就创建一个新的Integer对象
 
@@ -985,7 +985,7 @@ public static int parseInt(String s, int radix) throws NumberFormatException{
 
 去掉枝枝蔓蔓(当然这些枝枝蔓蔓 可以去看看，源码cover了很多情况)，其实剩下的就是一个简单的字符串遍历计算，不过计算方式有点反常规，是用负的值累减
 
-<figure><img src="../.gitbook/assets/image (24) (1).png" alt=""><figcaption><p>parseInt方法原理</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24) (1) (1).png" alt=""><figcaption><p>parseInt方法原理</p></figcaption></figure>
 
 ***
 
@@ -995,7 +995,7 @@ public static int parseInt(String s, int radix) throws NumberFormatException{
 
 Object类是一个特殊的类，是所有类的父类，也就是说所有类都可以调用它的方法；它主要提供了一下11个方法，大概可以分为六类：
 
-<figure><img src="../.gitbook/assets/image (25) (1).png" alt=""><figcaption><p>Object</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25) (1) (1).png" alt=""><figcaption><p>Object</p></figcaption></figure>
 
 **对象比较**
 
@@ -1034,7 +1034,7 @@ Object类是一个特殊的类，是所有类的父类，也就是说所有类�
 
 Java的异常体系是分为多层的
 
-<figure><img src="../.gitbook/assets/image (26) (1).png" alt=""><figcaption><p>异常体系</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (26) (1) (1).png" alt=""><figcaption><p>异常体系</p></figcaption></figure>
 
 Throwable是Java语言中所有错误或异常的基类；Throwable又分为Error和Exception，其中Error是系统内部错误，须虚拟机处理，是程序无法处理的；
 
@@ -1047,7 +1047,7 @@ Exception是程序问题导致的异常，又分为两种：
 
 针对异常的处理主要有两种方式：
 
-<figure><img src="../.gitbook/assets/image (27) (1).png" alt=""><figcaption><p>异常处理方式</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27) (1) (1).png" alt=""><figcaption><p>异常处理方式</p></figcaption></figure>
 
 *   遇到异常不进行具体处理，二十继续抛给调用者(throw，throws)
 
@@ -1158,9 +1158,9 @@ Java IO流共涉及40多个子类，看上去杂乱，其实都存在一定的�
 * **InputStream/Reader**：所有的输入流的基类，前者是字节输入流，后者是字符输入流
 * **OutputStream/Writer**：所有输出流的基类，前者是字节输出流，后者是字符输出流
 
-<figure><img src="../.gitbook/assets/image (28) (1).png" alt=""><figcaption><p>JavaIO</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (28) (1) (1).png" alt=""><figcaption><p>JavaIO</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (29) (1).png" alt=""><figcaption><p>JavaIO</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29) (1) (1).png" alt=""><figcaption><p>JavaIO</p></figcaption></figure>
 
 > IO流用到了什么设计模式？
 
@@ -1168,7 +1168,7 @@ Java IO流共涉及40多个子类，看上去杂乱，其实都存在一定的�
 
 InputStream相关的部分类图如下，篇幅有限，装饰器模式就不展开说了
 
-<figure><img src="../.gitbook/assets/image (30) (1).png" alt=""><figcaption><p>InputStream</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (30) (1) (1).png" alt=""><figcaption><p>InputStream</p></figcaption></figure>
 
 ### **既然有了字节流，为什么还要有字符流**
 
@@ -1178,11 +1178,11 @@ InputStream相关的部分类图如下，篇幅有限，装饰器模式就不展
 
 ### **BIO、NIO、AIO**
 
-<figure><img src="../.gitbook/assets/image (31) (1).png" alt=""><figcaption><p>三种IO</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (31) (1) (1).png" alt=""><figcaption><p>三种IO</p></figcaption></figure>
 
 **BIO(blocking I/O)**：就是传统的IO，**同步阻塞**，服务器实现模式为一个连接一个线程，**即客户端有连接请求时服务器端就需要启动一个线程进行处理**，如果这个连接不做任何事情会造成不必要的线程开销，可以通过连接池机制改善(实现多个客户链接服务器)
 
-<figure><img src="../.gitbook/assets/image (32) (1).png" alt=""><figcaption><p>BIO</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (32) (1) (1).png" alt=""><figcaption><p>BIO</p></figcaption></figure>
 
 BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4以前的唯一选择，程序简单易理解
 
@@ -1190,13 +1190,13 @@ BIO方式适用于连接数目比较小且固定的架构，这种方式对服�
 
 NIO是**同步非阻塞**的，服务器端用一个线程处理多个连接，客户端发送的连接请求会注册到多路复用器上，多路复用器轮询到连接，有IO请求就进行处理
 
-<figure><img src="../.gitbook/assets/image (33) (1).png" alt=""><figcaption><p>NIO</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (33) (1) (1).png" alt=""><figcaption><p>NIO</p></figcaption></figure>
 
 NIO的数据是面向**缓冲区Buffer**的，必须从Buffer中读取或写入
 
 所以完整的NIO示意图：
 
-<figure><img src="../.gitbook/assets/image (35) (1).png" alt=""><figcaption><p>NIO</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (35) (1) (1).png" alt=""><figcaption><p>NIO</p></figcaption></figure>
 
 可以看出，NIO的运行机制：
 
@@ -1217,7 +1217,7 @@ NIO的数据是面向**缓冲区Buffer**的，必须从Buffer中读取或写入
 
 所以反序列化就是把二进制流恢复成对象
 
-<figure><img src="../.gitbook/assets/image (36) (1).png" alt=""><figcaption><p>序列化</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (36) (1) (1).png" alt=""><figcaption><p>序列化</p></figcaption></figure>
 
 类比生活中一些大件物品的运输，运输的时候把它拆了打包，用的时候再拆包组装
 
@@ -1255,7 +1255,7 @@ serialVersionUID 就是起验证作用
 
 Java序列化方式有很多，常见的有三种：
 
-<figure><img src="../.gitbook/assets/image (37) (1).png" alt=""><figcaption><p>常见序列化方式</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (37) (1) (1).png" alt=""><figcaption><p>常见序列化方式</p></figcaption></figure>
 
 * **Java对象序列化**：Java原生序列化方法即通过Java原生流(InputStream和OutputStream之间的转化)的方式进行，一般是对象输出流`ObjectOutputStream`和对象输入流`ObjectInputStream`
 * **Json序列化**：这个可能是最常见的序列化方式，Json序列化的选择很多，一般会使用Jackson包，通过ObjectMapper类来进行一些操作，比如将对象转化为byte数组或则将Json串转化为对象
@@ -1287,7 +1287,7 @@ System.out.println(list);
 
 泛型一般有三种使用方式：**泛型类、泛型接口、泛型方法**
 
-<figure><img src="../.gitbook/assets/image (38) (1).png" alt=""><figcaption><p>泛型</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38) (1) (1).png" alt=""><figcaption><p>泛型</p></figcaption></figure>
 
 **泛型类**
 
@@ -1414,13 +1414,13 @@ Java注解本质上是一个标记，可以理解成生活中的一个人的一�
 
 不同的是那么周期的解析动作是不同的，像常见的：
 
-<figure><img src="../.gitbook/assets/image (39).png" alt=""><figcaption><p>Override</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (39) (1).png" alt=""><figcaption><p>Override</p></figcaption></figure>
 
 就是给编译器用的，编译器编译的时候检查没问题就over了，class文件里面不会有Override这个标记
 
 再比如Spring常见的Autowired，就是RUNTIME的，所以在运行的时候可以通过反射得到注解的信息，还能拿到标记的值required
 
-<figure><img src="../.gitbook/assets/image (40).png" alt=""><figcaption><p>Autowired</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (40) (1).png" alt=""><figcaption><p>Autowired</p></figcaption></figure>
 
 ***
 
@@ -1436,7 +1436,7 @@ Java注解本质上是一个标记，可以理解成生活中的一个人的一�
 
 反射最核心的四个类：
 
-<figure><img src="../.gitbook/assets/image (41).png" alt=""><figcaption><p>反射核心</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (41) (1).png" alt=""><figcaption><p>反射核心</p></figcaption></figure>
 
 > 反射的应用场景？
 
@@ -1495,7 +1495,7 @@ JDK 已经出到 17 了，但是你迭代你的版本，我用我的 8。JDK1.8 
 
 JDK1.8有不少新特性，经常接触到的新特性如下：
 
-<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption><p>JDK1.8新特性</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (42) (1).png" alt=""><figcaption><p>JDK1.8新特性</p></figcaption></figure>
 
 * 接口默认方法：Java8允许给接口添加一个非抽象的方法实现，只需要使用default关键字修饰即可
 * Lambda表达式和函数式接口：Lambda表达式本质上是一段匿名内部类，也可以是一段可以传递的代码；Lambda允许把函数作为一个方法的参数(函数作为参数传递方法中)，使用Lambda表达式使用代码更加简洁，但是也不要滥用，否则会有可读性等问题，建议使用Lambda表达式最好不要超过3行
@@ -1656,4 +1656,4 @@ stringCollection.add("ddd1");
 
 以上是常见的几种流式操作，还有其它的一些流式操作，可以帮助更便捷的处理集合数据
 
-<figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption><p>流式操作</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (43) (1).png" alt=""><figcaption><p>流式操作</p></figcaption></figure>

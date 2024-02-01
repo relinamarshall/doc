@@ -23,11 +23,11 @@ layout:
 * 并行就是同一时刻，两个线程都在执行；这就要求有两个CPU去分别执行两个线程
 * 并发就是同一时刻，只有一个执行，但是一个时间段内，两个线程都执行了；并发的实现依赖于CPU切换线程，因为切换的时间特别短，所以基本对于用户是无感知的
 
-<figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption><p>并行并发</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (45) (1).png" alt=""><figcaption><p>并行并发</p></figcaption></figure>
 
 就好像去食堂打饭，并行就是在多个窗口排队，几个阿姨同时打菜；并发就是挤在一个窗口，阿姨给这个打一勺，又手忙脚乱地给那个打一勺
 
-<figure><img src="../.gitbook/assets/image (46).png" alt=""><figcaption><p>比喻</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (46) (1).png" alt=""><figcaption><p>比喻</p></figcaption></figure>
 
 ### **2、说说什么是进程和线程？**
 
@@ -40,7 +40,7 @@ layout:
 
 比如Java中，当启动main函数其实就启动了一个JVM进程，而main函数在线程就是这个进程中的一个线程，也称主线程
 
-<figure><img src="../.gitbook/assets/image (47).png" alt=""><figcaption><p>主线程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (47) (1).png" alt=""><figcaption><p>主线程</p></figcaption></figure>
 
 一个进程中有多个线程，多个线程共用进程的堆和方法去资源，但是每个线程有自己的程序计数器和栈
 
@@ -48,7 +48,7 @@ layout:
 
 Java中创建线程主要有三种方式，分别为继承Thread类、实现Runnable接口、实现Callable接口
 
-<figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption><p>线程创建方式</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (48) (1).png" alt=""><figcaption><p>线程创建方式</p></figcaption></figure>
 
 *   继承Thread类，重写Run方法，调用Start方法后启动线程
 
@@ -116,13 +116,13 @@ Java中创建线程主要有三种方式，分别为继承Thread类、实现Runn
 
 JVM执行Start方法，会先创建一条线程，由创建出来的新线程去执行thread的run方法，这才起到多线程的效果
 
-<figure><img src="../.gitbook/assets/image (49).png" alt=""><figcaption><p>执行图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (49) (1).png" alt=""><figcaption><p>执行图</p></figcaption></figure>
 
 为什么不能直接调用run方法呢；其实也很清楚，如果直接调用Thread的Run方法，那么Run方法还是运行在主线程中，相当于顺序执行，就起不到多线程的效果
 
 ### **5、线程有哪些常用的调度方法？**
 
-<figure><img src="../.gitbook/assets/image (50).png" alt=""><figcaption><p>线程调度方法</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (50) (1).png" alt=""><figcaption><p>线程调度方法</p></figcaption></figure>
 
 **线程等待与通知**
 
@@ -174,17 +174,17 @@ Java中的线程中断是一种线程间的协作模式，通过设置线程的�
 
 线程在自身的生命周期中，并不是固定地处于某个状态，而是随着代码的执行在不同的状态之间进行切换，Java线程状态变化如图：
 
-<figure><img src="../.gitbook/assets/image (51).png" alt=""><figcaption><p>Java线程状态</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (51) (1).png" alt=""><figcaption><p>Java线程状态</p></figcaption></figure>
 
 ### **7、什么是线程上下文切换？**
 
 使用多线程的目的是为了充分利用CPU，但并发其实是一个CPU来应付多个线程
 
-<figure><img src="../.gitbook/assets/image (52).png" alt=""><figcaption><p>线程上下文切换</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (52) (1).png" alt=""><figcaption><p>线程上下文切换</p></figcaption></figure>
 
 为了让用户感觉多个线程是在同时执行的，CPU资源的分配采用了时间片轮转也就是给每个线程分配一个时间片，线程在时间片内占用CPU执行任务；当线程使用完时间片后，就会处于就绪状态并让出CPU让其他线程占用，这就是上下文切换
 
-<figure><img src="../.gitbook/assets/image (53).png" alt=""><figcaption><p>上下文切换</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (53) (1).png" alt=""><figcaption><p>上下文切换</p></figcaption></figure>
 
 ### **8、守护线程了解吗？**
 
@@ -196,7 +196,7 @@ Java中的线程分为两类，分别为daemon线程(守护线程)和user线程(
 
 ### **9、线程间有哪些通信方式？**
 
-<figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption><p>通信方式</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (54) (1).png" alt=""><figcaption><p>通信方式</p></figcaption></figure>
 
 *   **volatile和synchronized关键字**
 
@@ -230,7 +230,7 @@ ThreadLocal其实应用场景不是很多，但却是被炸了千百遍的面试
 
 ThreadLocal，也就是线程本地变量；如果你创建了一个ThreadLocal变量，那么访问这个变量的每个线程都会有这个变量的一个本地拷贝，多线程操作这个变量的时候，实际是操作自己本地内存里面的变量，从而起到线程隔离的作用，避免了线程安全问题
 
-<figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption><p>ThreadLocal</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (55) (1).png" alt=""><figcaption><p>ThreadLocal</p></figcaption></figure>
 
 *   创建
 
@@ -265,7 +265,7 @@ ThreadLocal，也就是线程本地变量；如果你创建了一个ThreadLocal�
 
 这时候就可以用到ThreadLocal，在控制层拦截请求把用户信息存入ThreadLocal，这样在任何一个地方，都可以取出ThreadLocal中存入的用户数据
 
-<figure><img src="../.gitbook/assets/image (56).png" alt=""><figcaption><p>ThreadLocal-MVC中应用</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (56) (1).png" alt=""><figcaption><p>ThreadLocal-MVC中应用</p></figcaption></figure>
 
 很多其他场景的cookie、session等等数据隔离也都可以通过ThreadLocal去实现
 
@@ -325,7 +325,7 @@ public WeakReference(T referent) {
 
 key的赋值，使用的是WeakReference的赋值
 
-<figure><img src="../.gitbook/assets/image (57).png" alt=""><figcaption><p>ThreadLocalMap结构</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (57) (1).png" alt=""><figcaption><p>ThreadLocalMap结构</p></figcaption></figure>
 
 所以，怎么回答ThreadLocal原理？要答出这个几点：
 
@@ -340,7 +340,7 @@ key的赋值，使用的是WeakReference的赋值
 
 所以呢，栈中存储了ThreadLocal、Thread的引用，堆中存储了它们的具体实例
 
-<figure><img src="../.gitbook/assets/image (58).png" alt=""><figcaption><p>内存中模型</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (58) (1).png" alt=""><figcaption><p>内存中模型</p></figcaption></figure>
 
 ThreadLocalMap中使用的key为ThreadLocal的弱引用
 
@@ -372,7 +372,7 @@ key设计成弱引用同样是为了防止内存泄漏
 
 ThreadLocalMap虽然被叫做Map，其实它是没有实现Map接口的，但是结构还是和HashMap比较类似的，主要关注的是两个要素：`元素数组`和`散列方法`
 
-<figure><img src="../.gitbook/assets/image (59).png" alt=""><figcaption><p>ThreadLocalMap</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (59) (1).png" alt=""><figcaption><p>ThreadLocalMap</p></figcaption></figure>
 
 *   元素数组
 
@@ -401,7 +401,7 @@ HashMap使用链表来解决冲突，也就是所谓的链地址法
 
 ThreadLocalMap没有使用链表，自然也不是用链地址法来解决冲突了，它用的是另外一种方式—开放定址法；开放定址法是什么意思呢？简单来说，就是这个坑被人占了，那就接着去找空着的坑
 
-<figure><img src="../.gitbook/assets/image (60).png" alt=""><figcaption><p>开放定址法</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (60) (1).png" alt=""><figcaption><p>开放定址法</p></figcaption></figure>
 
 如上图所示，如果插入一个value=27的数据，通过hash计算后应该落入第4个槽位中，而槽位4已经有了Entry数据，而且Entry数据的key和当前不相等；此时就会线性向后查找，一直找到Entry为null的槽位才会停止查找，把元素放到空的槽位中
 
@@ -442,7 +442,7 @@ private void expungeStaleEntries() {
 
 接着看看具体的`resize()`方法，扩容后的`newTab`的大小为老数组的两倍，然后遍历老的`table`数组，散列方法重新计算位置，开放定址解决冲突，然后放到新的`newTab`，便利完成之后，`oldTab`中所有的`entry`数据都已经放入到`newTab`中了，然后`table`引用指向`newTab`
 
-<figure><img src="../.gitbook/assets/image (63).png" alt=""><figcaption><p>ThreadLocalMap扩容</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (63) (1).png" alt=""><figcaption><p>ThreadLocalMap扩容</p></figcaption></figure>
 
 具体代码：
 
@@ -530,11 +530,11 @@ JMM定义了线程和主内存之间的抽象关系：线程之间的共享变�
 
 Java内存模型的抽象图：
 
-<figure><img src="../.gitbook/assets/image (64).png" alt=""><figcaption><p>Java内存模型的抽象图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (64) (1).png" alt=""><figcaption><p>Java内存模型的抽象图</p></figcaption></figure>
 
 本地内存是JMM的一个抽象概念，并不真实存在；它其实涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化
 
-<figure><img src="../.gitbook/assets/image (65).png" alt=""><figcaption><p>JMM抽象概念</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (65) (1).png" alt=""><figcaption><p>JMM抽象概念</p></figcaption></figure>
 
 图里面的是一个双核CPU系统架构，每个核有自己的控制器和运算器，其中控制器包含一组寄存器和操作控制器，运算器执行算数逻辑运算；每个核都有自己的一级缓存，在有些架构里面还有一个所有CPU共享的二级缓存；那么Java内存模型里面的工作内存，就对应这里面L1缓存或者L2缓存或者CPU寄存器
 
@@ -575,11 +575,11 @@ i = i + 1;
 
 从Java源代码到最终实际执行的指令序列，会分别经历下面3种重排序，如图：
 
-<figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption><p>重排序</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (66) (1).png" alt=""><figcaption><p>重排序</p></figcaption></figure>
 
 比较熟悉的双重校验单例模式就是一个经典的指令重排的例子，`Singleton instance = new Singleton();`对应的JVM指令分为三步：分配内存空间-->初始化对象-->对象指向分配的内存空间，但是经过了编译器的指令重排序，第二步和第三步就可能会重排序
 
-<figure><img src="../.gitbook/assets/image (67).png" alt=""><figcaption><p>指令排序</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (67) (1).png" alt=""><figcaption><p>指令排序</p></figcaption></figure>
 
 JMM属于语言级的内存模型，它确保在不同的编译器和不同的处理器平台之上，通过禁止特定类型的编译器重排序和处理器重排序，为程序员提供一致的内存可见性保证
 
@@ -594,7 +594,7 @@ happens-before的定义：
 
 happens-before和我们息息相关的有六大规则：
 
-<figure><img src="../.gitbook/assets/image (68).png" alt=""><figcaption><p>happens-before</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (68) (1).png" alt=""><figcaption><p>happens-before</p></figcaption></figure>
 
 * **程序顺序规则**：一个线程中的每个操作，happens-before于该线程中的任意后续操作
 * **监视器锁规则**：对一个锁的解锁，happens-before于随后对这个锁的加锁
@@ -619,13 +619,13 @@ double area = pi * r * r // TestC
 
 上面3个操作的数据依赖关系：
 
-<figure><img src="../.gitbook/assets/image (69).png" alt=""><figcaption><p>依赖关系</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (69) (1).png" alt=""><figcaption><p>依赖关系</p></figcaption></figure>
 
 A和C之间存在数据依赖关系，同时B和C之间也存在数据依赖关系；因此在最终执行的指令序列中，C不能被重排序到A和B的前面（C排到A和B的前面，程序的结果将会被改变）；但A和B之前没有数据依赖关系，编译器和处理器可以重排序A和B之前的执行顺序
 
 所以最终，程序可能会有两种执行顺序：
 
-<figure><img src="../.gitbook/assets/image (70).png" alt=""><figcaption><p>重排序后</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (70) (1).png" alt=""><figcaption><p>重排序后</p></figcaption></figure>
 
 as-if-serial语义把单线程程序保护了起来，遵守as-if-serial语义的编译器、runtime和处理器共同编织了这么一个”楚门的世界“：单线程程序是按程序的”顺序“来执行的；as-if-serial语义使单线程情况下，不需要担心重排序的问题，可见性的问题
 
@@ -641,13 +641,13 @@ volatile可以确保对某个变量的更新对其它线程马上可见，一个
 
 例如，声明一个volatile变量 `volatile int x = 0` ，线程A修改x=1，修改完之后就会把新的值刷新回主内存，线程B读取x的时候，就会清空本地内存变量，然后再从主内存获取最新值
 
-<figure><img src="../.gitbook/assets/image (71).png" alt=""><figcaption><p>Volatile可见性</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (71) (1).png" alt=""><figcaption><p>Volatile可见性</p></figcaption></figure>
 
 > volatile怎么保证有序性的呢？
 
 重排序可以分为编译器重排序和处理器重排序，volatile保证有序性，就是通过分别限制这两种类型的重排序
 
-<figure><img src="../.gitbook/assets/image (72).png" alt=""><figcaption><p>Volatile有序性</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (72) (1).png" alt=""><figcaption><p>Volatile有序性</p></figcaption></figure>
 
 为了实现volatile的内存语义，编译器在生成字节码时，会在指令序列中插入内存屏障禁止特定类型的处理器重排序
 
@@ -656,9 +656,9 @@ volatile可以确保对某个变量的更新对其它线程马上可见，一个
 * 在每个volatile读操作的后面插入一个`LoadLoad`屏障
 * 在每个volatile读操作的后面插入一个`LoadStore`屏障
 
-<figure><img src="../.gitbook/assets/image (73).png" alt=""><figcaption><p>Volatile写插入内存屏障</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (73) (1).png" alt=""><figcaption><p>Volatile写插入内存屏障</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (74).png" alt=""><figcaption><p>Volatile读插入内存屏障</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (74) (1).png" alt=""><figcaption><p>Volatile读插入内存屏障</p></figcaption></figure>
 
 ***
 
@@ -704,13 +704,13 @@ synchronized主要有三种用法：
 
     反编译一段synchronized修饰代码块代码，`javap -c -s -v -l SynchronizedDemo.class`，可以看到相应的字节码指令
 
-<figure><img src="../.gitbook/assets/image (75).png" alt=""><figcaption><p>反编译后</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (75) (1).png" alt=""><figcaption><p>反编译后</p></figcaption></figure>
 
 2.  synchronized修饰同步方法时，JVM采用`ACC_SYNCHRONIZED`标记符来实现同步，这个标识指明了该方法是一个同步方法
 
     同样可以写段代码反编译看下
 
-<figure><img src="../.gitbook/assets/image (76).png" alt=""><figcaption><p>反编译</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (76) (1).png" alt=""><figcaption><p>反编译</p></figcaption></figure>
 
 > synchronized锁住的是什么呢？
 
@@ -755,7 +755,7 @@ ObjectMonitor() {
   * 如果此时诊室内有其他患者，那么当前患者进入候诊室。等待叫号
 * 就诊结束后，走出就诊室，候诊室的下一位候诊患者进入就诊室
 
-<figure><img src="../.gitbook/assets/image (77).png" alt=""><figcaption><p>就诊类比</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (77) (1).png" alt=""><figcaption><p>就诊类比</p></figcaption></figure>
 
 这个过程就和Monitor机制比较相似：
 
@@ -763,7 +763,7 @@ ObjectMonitor() {
 * **就诊室**：就诊室\*\*\_Owner\*\*里只能有一个线程就诊，就诊完线程就自行离开
 * **候诊室**：就诊室繁忙时，进入**等待区(WaitSet)**，就诊室空闲的时候就从\*\*等待区(Wait Set)\*\*叫新的线程
 
-<figure><img src="../.gitbook/assets/image (78).png" alt=""><figcaption><p>类比</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (78) (1).png" alt=""><figcaption><p>类比</p></figcaption></figure>
 
 所以就知道了，同步是锁住的什么东西：
 
@@ -802,7 +802,7 @@ Java对象头里，有一块结构，叫`Mark Word`标记字段，这块结构�
 
 64位虚拟机Mark Word 是64bit，来看看它的状态变化：
 
-<figure><img src="../.gitbook/assets/image (79).png" alt=""><figcaption><p>MarkWord</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (79) (1).png" alt=""><figcaption><p>MarkWord</p></figcaption></figure>
 
 Mark Word存储对象自身的运行数据，如哈希码、GC分代年龄、锁状态标志、偏向时间戳(Epoch)等
 
@@ -820,7 +820,7 @@ Mark Word存储对象自身的运行数据，如哈希码、GC分代年龄、锁
 
 锁升级方向：无锁-->偏向锁-->轻量级锁-->重量级锁，这个方向基本上是不可逆的
 
-<figure><img src="../.gitbook/assets/image (80).png" alt=""><figcaption><p>锁升级</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (80) (1).png" alt=""><figcaption><p>锁升级</p></figcaption></figure>
 
 升级的过程：
 
@@ -853,11 +853,11 @@ Mark Word存储对象自身的运行数据，如哈希码、GC分代年龄、锁
 
 大体上简略的升级过程：
 
-<figure><img src="../.gitbook/assets/image (81).png" alt=""><figcaption><p>升级过程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (81) (1).png" alt=""><figcaption><p>升级过程</p></figcaption></figure>
 
 完整的升级过程：
 
-<figure><img src="../.gitbook/assets/image (82).png" alt=""><figcaption><p>完整过程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (82) (1).png" alt=""><figcaption><p>完整过程</p></figcaption></figure>
 
 ### **5、说说synchronized和ReentrantLock的区别？**
 
@@ -873,7 +873,7 @@ Mark Word存储对象自身的运行数据，如哈希码、GC分代年龄、锁
 
 下面是表格列出两种锁之间的区别：
 
-<figure><img src="../.gitbook/assets/image (83).png" alt=""><figcaption><p>锁区别</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (83) (1).png" alt=""><figcaption><p>锁区别</p></figcaption></figure>
 
 ### **6、AQS了解多少？**
 
@@ -884,11 +884,11 @@ AbstratQueueSynchronizer抽象双向同步队列，简称AQS，它是Java并发�
 * 获取state的方式分为两种，独占方式和共享方式，一个线程使用独占方式获取了资源，其它线程就在获取失败后被阻塞；一个线程使用共享方式获取了资源，另外一个线程还可以通过CAS的方式进行获取
 * 如果共享资源被占用，需要一定的阻塞等待唤醒机制来保证锁的分配，AQS中会将竞争共享资源失败的线程添加到一个变体的CLH队列中
 
-<figure><img src="../.gitbook/assets/image (84).png" alt=""><figcaption><p>AQS</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (84) (1).png" alt=""><figcaption><p>AQS</p></figcaption></figure>
 
 AQS中的队列是CLH变体的虚拟双向队列，通过将每条请求共享资源的现场封装成一个节点来实现锁的分配：
 
-<figure><img src="../.gitbook/assets/image (85).png" alt=""><figcaption><p>AQS虚拟双向队列</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (85) (1).png" alt=""><figcaption><p>AQS虚拟双向队列</p></figcaption></figure>
 
 AQS中的CLH变体等待队列拥有以下特性：
 
@@ -937,7 +937,7 @@ try {
 * 如果锁当前没有被其它线程占用，并且当前线程之前没有获取过该锁，则当前线程会获取到该锁，然后设置当前锁的拥有者为当前线程，并设置AQS的状态值为1，然后直接返回；如果当前线程之前已经获取过该锁，则这次只是简单地把AQS的状态值加1后返回
 * 如果该锁已经被其它线程持有，非公平锁会尝试去获取锁，获取失败的话，则调用该方法线程会被放入AQS队列阻塞挂起
 
-<figure><img src="../.gitbook/assets/image (86).png" alt=""><figcaption><p>lock过程</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (86) (1).png" alt=""><figcaption><p>lock过程</p></figcaption></figure>
 
 ### **8、ReentrantLock怎么实现公平锁的？**
 
@@ -967,7 +967,7 @@ FairSync、NonfairSync代表公平锁和非公平所，两者都是ReentrantLock
 * 非公平锁在调用lock后，首先就会调用CAS进行一次抢锁，如果这个时候恰巧锁没有被占用，那么直接就获取到锁返回了
 * 非公平锁在CAS失败后，和公平锁一样都会进入到tryAcquire方法，在tryAcquire方法中，如果发现锁这个时候被释放了(State==0)，非公平锁会直接CAS抢锁，但是公平锁会判断等待队列是否有线程处于等待状态，如果有则不去抢锁，排到后面
 
-<figure><img src="../.gitbook/assets/image (87).png" alt=""><figcaption><p>tryAcquire代码</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (87) (1).png" alt=""><figcaption><p>tryAcquire代码</p></figcaption></figure>
 
 相对来说，非公平锁会有更好的性能，因为它的吞吐量比较大；当然，非公平锁让获取锁的时间变得更加不确定，可能会导致在阻塞队列的线程长期处于饥饿状态
 
@@ -983,7 +983,7 @@ CAS指令包含3个参数：共享变量的内存地址A、预期的值B、共�
 
 CAS的经典三大问题：
 
-<figure><img src="../.gitbook/assets/image (88).png" alt=""><figcaption><p>三大问题CAS</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (88) (1).png" alt=""><figcaption><p>三大问题CAS</p></figcaption></figure>
 
 **ABA问题**
 
@@ -1016,7 +1016,7 @@ CAS保证的是对一个变量执行操作的原子性，如果对多个变量�
 
 ### **11、Java有哪些保证原子性的方法，如何保证多线程下i++结果正确？**
 
-<figure><img src="../.gitbook/assets/image (89).png" alt=""><figcaption><p>保证原子性</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (89) (1).png" alt=""><figcaption><p>保证原子性</p></figcaption></figure>
 
 * 使用循环原子类，例如AtomicInteger，实现i++原子操作
 * 使用JUC包下的锁，如ReentrantLock，对i++操作加锁lock.lock()来实现原子性
@@ -1030,7 +1030,7 @@ CAS保证的是对一个变量执行操作的原子性，如果对多个变量�
 
 因为变量的类型有很多种，所以在Atomic包里一共提供了13类，属于4种类型的原子更新方式，分别是原子更新基本类型、原子更新数组、原子更新引用和原子更新属性(字段)
 
-<figure><img src="../.gitbook/assets/image (90).png" alt=""><figcaption><p>原子操作类</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (90) (1).png" alt=""><figcaption><p>原子操作类</p></figcaption></figure>
 
 Atomic包里的类基本都是使用Unsafe实现的包装类
 
@@ -1090,11 +1090,11 @@ compareAndSwapInt是一个native方法，基于CAS来操作int类型变量；其
 
 死锁是指两个或两个以上的线程在执行过程中，因为夺资源而造成的互相等待的现象，在无外力作用的情况下，这些线程会一直相互等待而无法继续运行下去
 
-<figure><img src="../.gitbook/assets/image (91).png" alt=""><figcaption><p>死锁</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (91) (1).png" alt=""><figcaption><p>死锁</p></figcaption></figure>
 
 那么为什么会产生死锁呢？死锁的产生必须具备以下四个条件：
 
-<figure><img src="../.gitbook/assets/image (92).png" alt=""><figcaption><p>死锁条件</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (92) (1).png" alt=""><figcaption><p>死锁条件</p></figcaption></figure>
 
 * 互斥条件：指线程对已经获取到的资源进行它性使用，即该资源同时只由一个线程占用；如果此时还有其它线程请求获取该资源，则请求者只能等待，直至占有资源的线程释放该资源
 * 请求并持有：指一个线程已经持有了至少一个资源，但又提出了新的资源请求，而新资源已被其它线程占有，所以当前线程会被阻塞，但阻塞的同时并不释放自己已经获取的资源
@@ -1119,7 +1119,7 @@ compareAndSwapInt是一个native方法，基于CAS来操作int类型变量；其
 
 还可以利用图形化工具，比如Console；出现线程死锁以后，点击JConsole线程面板的`检测道死锁`按钮，将会看到线程的死锁信息
 
-<figure><img src="../.gitbook/assets/image (93).png" alt=""><figcaption><p>JConsole</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (93) (1).png" alt=""><figcaption><p>JConsole</p></figcaption></figure>
 
 ***
 
@@ -1135,7 +1135,7 @@ CountDownLatch允许一个或多个线程等待其他线程完成操作
 
 例如，很多人喜欢玩的王者荣耀，开黑的时候，得等所有人都上线之后，才能开打
 
-<figure><img src="../.gitbook/assets/image (94).png" alt=""><figcaption><p>例如</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (94) (1).png" alt=""><figcaption><p>例如</p></figcaption></figure>
 
 CountDownLatch模仿这个场景：
 
@@ -1173,7 +1173,7 @@ public static void main(String[] args) throws InterruptedException {
 
 王者游戏中也有类似的场景，游戏开始时，各玩家的初始状态必须一致；不能有的玩家都出完装了，有的才降生，所以大家得一块出生
 
-<figure><img src="../.gitbook/assets/image (95).png" alt=""><figcaption><p>线程开始动作</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (95) (1).png" alt=""><figcaption><p>线程开始动作</p></figcaption></figure>
 
 在这个场景中，任然用五个线程代表大桥、兰陵王、安其拉、哪吒和凯登等五个玩家；需要注意的是，各玩家虽然都调用了`start()`线程，但是它们在运行时都在等待`countDownLatch`的信号，在信号为收到前它们不会往下执行
 
@@ -1222,7 +1222,7 @@ CyclicBarrier的字面意思是可循环使用(Cyclic)的屏障(Barrier)；它�
 
 不知道你听没听过一个新人UP主小约翰可汗，小约翰生平有两大恨——“想结衣结衣不依,迷爱理爱理不理。”我们来还原一下事情的经过：小约翰在亲政后认识了新垣结衣，于是决定第一次选妃，向结衣表白，等待回应。然而新垣结衣回应嫁给了星野源，小约翰伤心欲绝，发誓生平不娶，突然发现了铃木爱理，于是小约翰决定第二次选妃，求爱理搭理，等待回应。
 
-<figure><img src="../.gitbook/assets/image (96).png" alt=""><figcaption><p>例子</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (96) (1).png" alt=""><figcaption><p>例子</p></figcaption></figure>
 
 拿代码模拟这一场景，发现CountDownLatch无能为力，因为CountDownLatch的使用是一次性的，无法重复利用，而这里等待了两次；此时，用CyclicBarrier就可以实现，因为它可以重复利用
 
