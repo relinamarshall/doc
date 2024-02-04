@@ -16,6 +16,10 @@
 * [FIND](linux/find.md)
 * [DU](linux/du.md)
 
+## ALGORITHM
+
+* [排序算法](algorithm/find.md)
+
 ## Other
 
 * [正则](other/zheng-ze.md)
