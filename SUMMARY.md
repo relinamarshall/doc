@@ -9,6 +9,7 @@
 * [MYSQL事务](database/mysql-shi-wu.md)
 * [SQL函数](database/sql-han-shu.md)
 * [MYSQL常用语句](database/mysql-chang-yong-yu-ju.md)
+* [ORACLE常用语句](database/oracle-chang-yong-yu-ju.md)
 
 ## Linux
 
