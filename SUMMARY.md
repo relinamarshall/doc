@@ -30,13 +30,3 @@
 * [实用脚本](other/shi-yong-jiao-ben.md)
 * [SSH免密登录Linux](other/ssh-mian-mi-deng-lu-linux.md)
 * [经验总结](other/jing-yan-zong-jie.md)
-
-## INTERVIEW
-
-* [JavaSE](interview/javase.md)
-* [JavaCollection](interview/javacollection.md)
-* [JavaThead](interview/javathead.md)
-* [JavaJVM](interview/javajvm.md)
-* [Mybatis](interview/mybatis.md)
-* [Redis](interview/redis.md)
-* [Spring](interview/spring.md)
