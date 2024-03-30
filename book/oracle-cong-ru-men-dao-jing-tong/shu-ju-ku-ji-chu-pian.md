@@ -50,7 +50,7 @@ layout:
 
 外键约束之所以被认为是参照约束，是因为它主要用作把一个表中的数据和另一个表中的数据进行关联，表和表之间的关联是为了保证数据库中数据的完整性，使用外键保证数据的完整性，也叫参照完整性
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>外键</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>外键</p></figcaption></figure>
 
 在商品信息表中“商品编号”是主键，而在商品类型信息表中“类型编号”是主键，当把商品信息表中的“商品编号”与商品类型信息表中的“类型编号”设置为外键约束后，在商品信息表中的类型信息就可以用商品类型信息表中的类型编号代替。设置完外键约束后，商品信息表中类型字段值必须是在商品类型信息表中存在的，同时当在商品类型信息表中删除一个类型时，如果商品信息表已经使用过该类型，那么商品类型信息表中的数据就无法被删除。
 
@@ -90,7 +90,7 @@ layout:
 
 目前，只要是使用关系型数据库来设计数据库，都能够满足数据库设计的第一范式。第一范式(1NF)就是数据库表中的字段都是单一属性的，不可再分。这个单一属性可以是数据库中任何一种基本数据类型，如整型、字符型、日期型等。只要是关系型数据库都会满足第一范式。例如，一个产品信息表(product)，描述产品信息的字段有产品编号、产品名称、产品数量、产品价格、产品描述，如表3.4所示，那么这个产品信息表就满足第一范式的要求:每一个字段都是不可再分的单一属性。
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>产品信息表</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>产品信息表</p></figcaption></figure>
 
 #### 第二范式--关系型数据库设计的第二步
 
@@ -2618,7 +2618,7 @@ Oracle中的异常可以分为三类:
 
 Oracle中为每个错误提供一个错误号，而捕获异常则需要异常有名称。Oracle提供了一些已经定义好名称的常用异常，这就是预定义异常。例如，前面在使用SELECT...INTO语句时，如果返回超过一条记录就会触发TOO\_MANY\_ROWS异常。
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>预定义异常</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>预定义异常</p></figcaption></figure>
 
 Oracle一共提供了25种预定义异常。利用下面的查询语句可以查看Oracle的预定义异常:
 
