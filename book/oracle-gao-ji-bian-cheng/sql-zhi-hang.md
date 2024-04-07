@@ -12,7 +12,7 @@ layout:
     visible: true
 ---
 
-# 二、SQL执行
+# SQL执行
 
 ## Oracle架构基础
 
@@ -239,9 +239,9 @@ and o.order_total>100000;
 
 > 试图合并执行计划比较
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>进行试图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>进行试图合并</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>不进行试图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>不进行试图合并</p></figcaption></figure>
 
 第2个不进行视图合并的执行计划中视图是单独来进行处理的。该计划还通过在第3行中使用**VIEW关键字**来表明视图是保持“原样”的。通过单独处理视图，在与外部的orders表联结之前就要对orders表进行全表扫描。然而，在使用视图合并的版本中，计划运算合并为一个计划而不是让内嵌视图保持独立。这就使得所选的对于索引的访问操作效率更高，并且需要处理更少的行(26行-104行)。这个例子使用的还是一个很小的表，因此可以想象如果在查询中包含很大的表的话将会做多少工作。对视图进行合并的转换使得总体执行计划变得更佳。
 
@@ -278,7 +278,7 @@ WHERE e1.department_id=v.department_id AND e1.salary > v.avg_salary;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>聚合函数阻止视图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>聚合函数阻止视图合并</p></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```sql
@@ -291,7 +291,7 @@ WHERE e1.department_id=v.department_id AND e1.salary > v.avg_salary;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>MERGE显示的视图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>MERGE显示的视图合并</p></figcaption></figure>
 
 ## 子查询解嵌套
 
@@ -309,7 +309,7 @@ where department_id in (select department_id from departments);
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>不相关子查询的解嵌套转换</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>不相关子查询的解嵌套转换</p></figcaption></figure>
 
 本例中的子查询就是简单地通过转化为表联结来合并到主查询中。该查询的执行计划就好像是按照如下语句来得出的:
 
@@ -333,7 +333,7 @@ where department_id in (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>子查询独立生成执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>子查询独立生成执行计划</p></figcaption></figure>
 
 这两种执行计划的主要区别就是不进行查询转换将会选用**FILTER**运算而不是**NESTED LOOPS**连接。后面会对两种运算进行详细讲解。在这里只要注意FILTER运算是以较低效率进行两个表的匹配及联结的典型代表。如果你查看第一步的谓语信息，你可以看到子查询是保持原封不动的。这个“原版”查询在执行的时候对于**employees**表中的每一行数据，子查询必须使用**employees**表中的**department\_id**这一列来与子查询所返回的**department\_id**来进行联结。由于**employees**表中有107行，每一行都将执行一次子查询。因为Oracle使用了一种很好的被称为子查询缓存的优化功能，这两种执行计划孰优孰劣还不好说，但你很可能会看到为每一行执行一次查询的效率要比表联结的效率低。在后面的章节中详细讨论这些运算，并且评论为什么**NESTED LOOPS**联结比**FILTER**运算的效率要高。 当包含联结子查询的时候，子查询解嵌套转换会变得更复杂一些。
 
@@ -355,7 +355,7 @@ where outer.salary > (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>联结子查询的解嵌套转换执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>联结子查询的解嵌套转换执行计划</p></figcaption></figure>
 
 注意在这个例子中子查询是如何转换为一个内嵌视图，然后与其外的查询合并且相联结的。相关列变成了联结条件而子查询的剩余部分用来生成内嵌视图。经过重写后的该查询的版本将会像下面这样:
 
