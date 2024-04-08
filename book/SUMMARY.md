@@ -10,7 +10,6 @@
   * [面向集合思维](oracle-gao-ji-bian-cheng/mian-xiang-ji-he-si-wei.md)
   * [关于问题](oracle-gao-ji-bian-cheng/guan-yu-wen-ti.md)
   * [SQL执行计划](oracle-gao-ji-bian-cheng/sql-zhi-hang-ji-hua.md)
-  * [高级分组](oracle-gao-ji-bian-cheng/gao-ji-fen-zu.md)
   * [分析函数](oracle-gao-ji-bian-cheng/fen-xi-han-shu.md)
   * [Model子句](oracle-gao-ji-bian-cheng/model-zi-ju.md)
   * [子查询因子化](oracle-gao-ji-bian-cheng/zi-cha-xun-yin-zi-hua.md)
