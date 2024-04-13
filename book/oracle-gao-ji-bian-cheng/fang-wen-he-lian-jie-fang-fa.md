@@ -143,7 +143,7 @@ FROM ALL_TABLES WHERE TABLE_NAME='T2'
 
 在经过一系列常规操作之后，数据行被从表中删除。下图所示为从数据表中删除掉很多行之后麦中的情景。
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>数据行被删除后数据块中的情景，高水位线保持不变</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>数据行被删除后数据块中的情景，高水位线保持不变</p></figcaption></figure>
 
 即使几乎所有数据行都被删除了并且一些块实际上已经完全变成空的了,高水位线还是保持不变。当进行全扫描运算的时候，到高水位线为止的所有数据块都将被读取并扫描，即使它们是空的。这就意味着许多实际上不需要读取的空数据块也被读取了。下列代码清给出了为什么即使表中所有行都被删除掉了，高水位线还是保持不变的一个例子。
 
@@ -348,7 +348,7 @@ AAAR3sAAEAAAACXAAI|F:\ORACLE\ORADATA\ORCL\USERS01.DBF|     151|     8|
 
 索引具有一定的逻辑结构，如下图所示。索引包含一个或多个层次的分支块以及一个层次的叶子块。分支块保存着下一层级分支所包括的值范围信息，它会被用来在索引结构中进行搜索以获得所需的叶子块。**索引的高度是指第一个分支块(也就是根数据块)到叶子块的分支层级数目。**如前面所提到的，叶子分支包含排序后的索引对象的值和行编号如果你新建一张空表，并在其上创建索引，索引将会包含一个空块。在这种情况下，这个唯一的块既是根数据块又是叶子数据块。索引的高度是1。还有另一个被称为`blevel`的统计信息用来表示一个索引中的分支层级数。在本例中，blevel为0。
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>索引结构的逻辑图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>索引结构的逻辑图</p></figcaption></figure>
 
 随着新行的插入，新的索引条目会被加入到索引块中，直到该块无法容纳更多的条目。当索引块已经填满，无法再容纳新的条目时，Oracle 会分配两个新的索引块，并将所有的索引条目加入到这两个新的叶子块中。原先指向被填满的根数据块现在会被替代为指向两个新数据块的指针。这个指针包括指向新索引块的相对数据块地址`（Relative Block Address，RBA）`和一个表示相关叶子块中最低索引值的值。Oracle 可以利用根数据块中的信息来搜索索引，以找到存有所需值的特定叶子块。
 
@@ -626,9 +626,9 @@ Plan hash value: 4208130311
 
 > 索引跳跃扫描的例子
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 在这个例子中，索引的引导列`job_id`具有19个唯一值。使用索引跳跃扫描来访问符合条件的23行数据`(first_name='william')`，将会有50次一致性读取(逻辑块访问)。如果使用全表扫描则需要访问376个数据块。由此可见，跳跃扫描的效率更高。索引跳跃扫描过程中所发生的事情就是索引被逻辑地划分为19个子索引，然后对每个子索引进行扫描寻找符合条件`firstname'William'`的。对于这种索引扫描类型，需要记住的一点是索引引导列的唯一值越少，所需的逻辑子索引数目也越少，从而需要访问的总块数也越少
 
@@ -675,7 +675,7 @@ Plan hash value: 1337987591
 
 联结发生在一对表或者数据行源之间。当在FROM子句中存在多张表时，优化器将会决定哪种联结运算对于每一对表来说效率最高。**联结的方法有:嵌套循环联结、散列联结、排序-合并联结以及笛卡儿联结。**每种联结方法都有一定的最适合使用的条件。对于每对需要联结的表，优化器还必须确定表联结的顺序。下图示出了一个包括4张表的查询是如何来进行联结的。
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>联结顺序示例图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>联结顺序示例图</p></figcaption></figure>
 
 注意在第一对表联结以后，下一张表是与第一个联结得到的结果行进行联结。在这次联结进行完之后，下一个联结还是与其结果行联结。这个过程会不断进行直到所有的表都被联结。
 
@@ -974,9 +974,9 @@ Plan hash value: 2034389985                                                  |
 
 在这个例子中，需要对总下单金额在S0和$5000之间的顾客进行计数。
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 当使用`Oracle的(+)运算符`时，会有一些在使用`ANSI语法`时没有的局限性。如果你尝试将同一个表与另外多张表进行外联结Oracle将会抛出一个错误。错误信息是:“ORA-01417:一张表最多只能与另外的一张表进行外联结"。而使用ANSI语法对表的数目没有限制，即使是一张表也可以外联结。Oracle外联结语法的另一个局限性在于它不支持全外联结。全外联结将会从左到右以及从右到左对两个表进行联结。
 
