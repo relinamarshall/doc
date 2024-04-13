@@ -11,7 +11,6 @@
   * [关于问题](oracle-gao-ji-bian-cheng/guan-yu-wen-ti.md)
   * [SQL执行计划](oracle-gao-ji-bian-cheng/sql-zhi-hang-ji-hua.md)
   * [分析函数](oracle-gao-ji-bian-cheng/fen-xi-han-shu.md)
-  * [Model子句](oracle-gao-ji-bian-cheng/model-zi-ju.md)
   * [子查询因子化](oracle-gao-ji-bian-cheng/zi-cha-xun-yin-zi-hua.md)
   * [半联结和反联结](oracle-gao-ji-bian-cheng/ban-lian-jie-he-fan-lian-jie.md)
   * [索引](oracle-gao-ji-bian-cheng/suo-yin.md)
