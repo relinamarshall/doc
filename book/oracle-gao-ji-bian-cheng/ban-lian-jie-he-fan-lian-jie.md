@@ -389,7 +389,7 @@ where department_id not in (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>反联结执行计划NOT IN</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption><p>反联结执行计划NOT IN</p></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```sql
@@ -402,19 +402,19 @@ where not exists (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>反联结执行计划NOT EXISTS</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>反联结执行计划NOT EXISTS</p></figcaption></figure>
 
 注意`NOT EXISTS`语句生成了嵌套循环反联结(`NESTED LOOPS ANTI`)执行计划而`NOT IN`语句生成了合并反联结(`MERGE JOIN ANTI NA`)执行计划。嵌套循环反联结是自0racle7版本以来的标准反联结形式。而应用到合并联结的`ANTI NA`是在11g中引入的新的优化方法(**NA表示考虑空值**)。这个新的优化方法允许优化器在不知道子查询是否会返回空值的情况下处理`NOT IN`类型的查询。在11g之前，除非优化器确定子查询不会返回空值，否则不能在`NOT IN`查询中进行反联结。注意这个优化技术并不能解决前面提到的`NOT IN`子句在空值方面的“非直观”行为。如果子查询返回一个空值的话这个查询仍然不会返回任何记录，但有了`ANTI NA`选项确实能处理得更快。下列代码清单给出了另外一个表明子查询中各种不同的处理空值的方法是如何影响优化器的选择的例子(注意:`fsp.sql`脚本给出了如果使用半联结或反联结时，`v$sql`中的一些执行统计信息以及`v$sql_plan`中的运算和选项)。
 
 > 反联结执行计划
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>反联结执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>反联结执行计划</p></figcaption></figure>
 
 正如你所看到的，`EXISTS`、具有`NOT NULL`的`NOT IN`，和具有`NVL`的`NOT IN`都使用正常的反联结而忽略空值处理的`NOT IN`则必须使用新的考虑空值的反联结(`ANTI NA`)。现在，让我们再次回到`LEFT OUTER`和`MINUS`的例子中，看看它们会生成什么样的执行计划。下列代码清单所示是使用其他几种可替代语法时优化器生成的执行计划。
 
 > 可替代的反联结执行计划
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>可替代的反联结执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>可替代的反联结执行计划</p></figcaption></figure>
 
 尽管所有这些语句返回同样的数据，MINUS语法并没有使用反联结优化方法。如果仔细查看，你会发现其他所有语句执行计划的散列值是一样的，意味着它们使用了完全一样的执行计划。
 
@@ -453,9 +453,9 @@ where not exists (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>使用提示控制反联结执行计划NOT IN</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>使用提示控制反联结执行计划NOT IN</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>使用提示控制反联结执行计划NOT EXISTS</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>使用提示控制反联结执行计划NOT EXISTS</p></figcaption></figure>
 
 ### 在实例级控制
 

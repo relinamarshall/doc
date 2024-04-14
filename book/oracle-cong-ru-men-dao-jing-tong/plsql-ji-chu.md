@@ -731,7 +731,7 @@ Oracle中的异常可以分为三类:
 
 Oracle中为每个错误提供一个错误号，而捕获异常则需要异常有名称。Oracle提供了一些已经定义好名称的常用异常，这就是预定义异常。例如，前面在使用SELECT...INTO语句时，如果返回超过一条记录就会触发TOO\_MANY\_ROWS异常。
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption><p>预定义异常</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption><p>预定义异常</p></figcaption></figure>
 
 Oracle一共提供了25种预定义异常。利用下面的查询语句可以查看Oracle的预定义异常:
 

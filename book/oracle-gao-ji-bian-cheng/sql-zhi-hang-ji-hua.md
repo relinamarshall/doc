@@ -42,7 +42,7 @@ layout:
 
 > PLAN\_TABLE表
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>PLAN_TABLE</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>PLAN_TABLE</p></figcaption></figure>
 
 我并不会逐个来看所列出来的每一列，但我想给出这个表的结构描述，如果你愿意的话可以从中进行进一步的学习。你可以在Oracle文档中找到更多相关信息。
 
@@ -80,7 +80,7 @@ connect by prior id = parent_id;
 
 PARENTID对你是很有帮助的，因为如果你将计划中所包含的父子关系铭记于心的话将最容易读懂计划中的运算。计划中的每一步都将会有0\~2个子步骤。如果你把计划分解为按父-子关系分组的小块，你将更容易读懂和理解计划。
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 在示例计划中，每个运算有0个、1个或2个子运算。例如，全表扫描运算没有任何子运算。看一下ID=8的那一行。另一个运算没有子运算的例子就是第6行。如果你从上到下浏览一遍PARENTID列，你会发现其中没有步骤6和步骤8。这就意味着这两个运算的完成不依赖于其他任何运算步骤。但是，这两个步骤都是其他步骤的子运算，并会将它们所访问的数据传递给它们的父步骤。当一个运算没有子运算的时候，所展示出来的估计行数`(PLAN_TABLE`表中的`CARDINALITY`列)表示该运算一次迭代所获取的行数。这在一个运算向其选代父运算提供行的时候有点容易引起混乱。例如，第9步是一个估计只有1行的索引唯一扫描运算，但这个估计并没有表明该步骤所要访问的总数据行数。总数取决于父运算。我稍后将会更详细地讨论这方面的内容。 步骤6和步骤8的父步骤5和步骤7都是有一个子运算的例子。
 
@@ -123,9 +123,9 @@ select * from regions where region_id = :regid;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 你注意到解释计划输出中是如何表明将使用主键索引而实际执行计划使用全表扫描的了吗?其原因在谓语信息那一部分很清楚地表明了。在解释计划输出中，谓语是`“REGION_ID”=:REGID`，而在实际执行计划中所示出的谓语是`TO_NUMBER("REGION_ID")=:REGID`。这说明了解释计划不考虑绑定变量的数据类型并假设所有的绑定变量都是字符串类型的方式。对于解释计划来说，数据类型被认为都是一样的(都是字符串)。然而，当语句真正执行的时候所准备的执行计划却要考虑数据类型,Oracle隐式地将字符串数据类型的REGION ID列转换为数值类型来匹配绑定变量的数据类型(数值型)。这是可以预见的行为，因为当进行比较的两种数据类型不匹配时Oracle总是尝试将字符串类型转换为与之匹配的非字符串类型。在这个例子中通过这样做，`TO_NUMBER函数`使得不允许使用索引。这是需要牢记于心的另一个预期的行为:谓语必须严格匹配索引定义，否则将不会使用索引。
 
@@ -143,7 +143,7 @@ select * from regions where region_id = :regid;
 
 > 解释计划例子
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>解释计划例子</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>解释计划例子</p></figcaption></figure>
 
 乍一看，你可以看到第6行和第8行缩进是最深的。第6行将首先执行并将索引全扫描所得到的行编号传递给它的父步骤(第5行)。接下来将执行第8行并将其行数据源传递给它的父步(第7行)。这些步骤将从缩进最深的到缩进最少的一步接一步来执行并将结果传递给其父步骤，直到所有步骤都执行完毕。为了更清楚地看出执行的步骤，下列代码清单来读取PLAN\_TABLE表并将输出按照执行的顺序来列出。
 
@@ -164,7 +164,7 @@ order by lvl desc,id;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 解释计划输出中最有用的部分之一就是被称为谓语信息的部分。在这个部分中，将会示出`ACCESS_PREDICATES`和`FILTER_PREDICATES列。`这两列与计划运算列表中的一行(用ID列来指示)相关。你会发现计划中每一个有相关的访问或选谓语的运算，在其ID的旁边都有一个星号`(*)`。当你看到星号的时候，你就知道要在谓语信息部分寻找ID号来确定哪个谓语`(WHERE子句中的条件)`是与该运算相关的。通过使用这些信息你就可以确认用来进行索引访问的列是正确(或不正确)的，并且可以确定在哪里进行了条件的过滤。
 
@@ -230,15 +230,15 @@ select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 
 > V$SQL\_PLAN\_STATISTICS\_ALL视图描述
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 包含与涉及`dbms_xplan.display_cursor`函数输出相关的统计信息的列均以前缀`LAST`开头。当你使用`ALLSTATS LAST`格式选项的时候，计划就会为其中的每一行显示这些列的值。因此，对于每一个运算，你将能够准确地知道将会返回多少行(`LAST_OUTPUT_ROWS`在`A-Rows`列中给出)，发生了多少次一致性读取(`LAST_CR_BUFFER_GETS`在`Buffers`列中给出)，发生了多少次物理读取(`LAST_DISK_READS`在`Reads`列中给出),以及每一步骤执行的次数(`LAST_STARTS`在`Starts`列中给出)。根据所执行的运算不同，还将显示其他一些列，但上面列出的这些是最常见的。
 
 `dbms_xplan.display_cursor`的调用签名如下。
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 在下列代码清单的例子中，所使用的3个参数是`SOLID=>null、CURSOR_CHILD_NO=>null`和`FORMAT=>ALLSTATS LAST`。`SOL_ID`和`CURSOR_CHILD_NO`参数使用空值表明了需要取出上一个执行语句的执行计划。
 

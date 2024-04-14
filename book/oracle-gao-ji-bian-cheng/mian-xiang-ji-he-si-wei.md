@@ -39,7 +39,7 @@ where not exists (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption><p>过程化执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24) (1).png" alt=""><figcaption><p>过程化执行计划</p></figcaption></figure>
 
 相反,如果你使用面向集合的观点来看待这个问题,你就会写出对表只进行一次访问的查询，按照员工进行分组,然后筛选出那些在某个岗位上工作的最短年数与某个岗位上工作的最长年数相一致的员工。
 
@@ -53,7 +53,7 @@ having min(round(months_between(j2.start_date,j2,end_date)/12,0)) =
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption><p>集合思维执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25) (1).png" alt=""><figcaption><p>集合思维执行计划</p></figcaption></figure>
 
 关键是要开始以完成后的结果的形式(而不是以处理步骤的形式)来思考。要找集合的特征而不是单独的步骤或行为。在基于集合的思维方式中,所有事物都以应用于集合的筛选条件或约束所定义的状态存在。你不再按照过程步骤来思考而是要按照集合的状态来思考。下图给出了处理步骤图与嵌套集合图之间的一个比较用来说明我的观点。
 
@@ -329,46 +329,3 @@ ROW_CT|COMM_CT|AVG_COMM|MIN_COMM|MAX_COMM|SUM_COMM|
 要想写出简单易懂并且性能会比按过程化方法来写更好的SQL语句，你需要掌握的核心技能就是以集合的方式来思考。当你按过程化来思考的时候，你就会尝试强制让非过程化的SQL语言按照不必要的方式来实现其功能。
 
 在本章中,复习了面向过程的和面向集合的两种思考方法并讨论了如何将你的思维方式从面向过程转变到面向集合上来。当你进一步学习本书的时候,将基于集合的思维方式谨记于心。如果你发现自己还是按照过程化的方法一行一行地来考虑问题,停下来检视一下。你练习得越多这种转变就会变得越简单。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

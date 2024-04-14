@@ -18,7 +18,7 @@ layout:
 
 术语**"Oracle数据库"**即用来指存储在硬盘上的内部存有数据的数据库文件，也指用来管理这些文件的内存结构。事实上，术语**"数据库"**归属与数据文件而**"实例"**则归属于内存结构。一个实例由系统**全局内存区域(system global area,SGA)**以及一系列的后台进程组成。每一个连接到数据库的用户都是通过一个客户端进程来进行管理的。客户端进程是与服务器进程相联结的，每一个服务器进程都会被分配一块私有的内存区域，称为**程序共享内存区域(program global area)**或**进程共享内存区域(process global area,PGA)**。
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>Oracle实例和数据库关系图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>Oracle实例和数据库关系图</p></figcaption></figure>
 
 ## SGA-共享池
 
@@ -239,9 +239,9 @@ and o.order_total>100000;
 
 > 试图合并执行计划比较
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>进行试图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>进行试图合并</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>不进行试图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>不进行试图合并</p></figcaption></figure>
 
 第2个不进行视图合并的执行计划中视图是单独来进行处理的。该计划还通过在第3行中使用**VIEW关键字**来表明视图是保持“原样”的。通过单独处理视图，在与外部的orders表联结之前就要对orders表进行全表扫描。然而，在使用视图合并的版本中，计划运算合并为一个计划而不是让内嵌视图保持独立。这就使得所选的对于索引的访问操作效率更高，并且需要处理更少的行(26行-104行)。这个例子使用的还是一个很小的表，因此可以想象如果在查询中包含很大的表的话将会做多少工作。对视图进行合并的转换使得总体执行计划变得更佳。
 
@@ -278,7 +278,7 @@ WHERE e1.department_id=v.department_id AND e1.salary > v.avg_salary;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>聚合函数阻止视图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>聚合函数阻止视图合并</p></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```sql
@@ -291,7 +291,7 @@ WHERE e1.department_id=v.department_id AND e1.salary > v.avg_salary;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>MERGE显示的视图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>MERGE显示的视图合并</p></figcaption></figure>
 
 ## 子查询解嵌套
 
@@ -309,7 +309,7 @@ where department_id in (select department_id from departments);
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption><p>不相关子查询的解嵌套转换</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption><p>不相关子查询的解嵌套转换</p></figcaption></figure>
 
 本例中的子查询就是简单地通过转化为表联结来合并到主查询中。该查询的执行计划就好像是按照如下语句来得出的:
 
@@ -333,7 +333,7 @@ where department_id in (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption><p>子查询独立生成执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption><p>子查询独立生成执行计划</p></figcaption></figure>
 
 这两种执行计划的主要区别就是不进行查询转换将会选用**FILTER**运算而不是**NESTED LOOPS**连接。后面会对两种运算进行详细讲解。在这里只要注意FILTER运算是以较低效率进行两个表的匹配及联结的典型代表。如果你查看第一步的谓语信息，你可以看到子查询是保持原封不动的。这个“原版”查询在执行的时候对于**employees**表中的每一行数据，子查询必须使用**employees**表中的**department\_id**这一列来与子查询所返回的**department\_id**来进行联结。由于**employees**表中有107行，每一行都将执行一次子查询。因为Oracle使用了一种很好的被称为子查询缓存的优化功能，这两种执行计划孰优孰劣还不好说，但你很可能会看到为每一行执行一次查询的效率要比表联结的效率低。在后面的章节中详细讨论这些运算，并且评论为什么**NESTED LOOPS**联结比**FILTER**运算的效率要高。 当包含联结子查询的时候，子查询解嵌套转换会变得更复杂一些。
 
@@ -355,7 +355,7 @@ where outer.salary > (
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>联结子查询的解嵌套转换执行计划</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption><p>联结子查询的解嵌套转换执行计划</p></figcaption></figure>
 
 注意在这个例子中子查询是如何转换为一个内嵌视图，然后与其外的查询合并且相联结的。相关列变成了联结条件而子查询的剩余部分用来生成内嵌视图。经过重写后的该查询的版本将会像下面这样:
 
@@ -400,7 +400,7 @@ AND e1.department_id = 60;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption><p>谓语前推1</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>谓语前推1</p></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```sql
@@ -418,7 +418,7 @@ AND e1.department_id = 60;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption><p>谓语前推2</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (1).png" alt=""><figcaption><p>谓语前推2</p></figcaption></figure>
 
 注意第一个执行计划中的第6步。`WHERE department_id = 60`这个谓语被推进到视图中，使得可以仅计算一个部门的平均薪水。当这个谓语如第二个执行计划所示不被推进时，需要计算每个部门的平均薪水，然后当外部的查询块与内部查询块相联结的时候，再将所有`department_id`不为60的数据行剔除掉。你可以通过行数估算也可以通过第二个计划的执行成本看出，优化器认识到该计划不得不等待应用这个谓语而需要做更多的工作，因此是更昂贵并且更费时的运算。
 
@@ -445,7 +445,7 @@ set autotrace off;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>使用物化视图进行查询重写1</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>使用物化视图进行查询重写1</p></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```sql
@@ -464,7 +464,7 @@ where s.time_id = t.time_id AND s.prod_id = p.prod_id;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption><p>使用物化视图进行查询重写2</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>使用物化视图进行查询重写2</p></figcaption></figure>
 
 {% code lineNumbers="true" %}
 ```sql
@@ -476,7 +476,7 @@ where s.time_id = t.time_id AND s.prod_id = p.prod_id;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption><p>使用物化视图进行查询重写2</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption><p>使用物化视图进行查询重写2</p></figcaption></figure>
 
 为了保持例子的简单性，我使用了一个**REWRITE**提示来打开查询重写转换。你同样也可以让查询重写自动发生。当发生重写时，执行计划仅仅列出了对物化视图的完全访问而不是初始生成结果集的时候所需要执行的整个运算集。你可以想象，对于具有很大结果集的复杂查询，时间的节省是非常显著的，尤其是当查询包含聚合的话。关于查询重写及物化视图的更多信息，高级查询重写的内容请自行搜索文章查看。
 
@@ -560,7 +560,7 @@ select * from ALL_IND_COLUMNS where table_name ='LOG_USER';
 
 当你执行一个SQL查询，返回给你的是一个简单的由满足查询的数据行组成的响应，实际上是由一系列单独执行的调用完成的。为了完成响应，你的查询将会完成解析、绑定、执行、提取的步骤。在一个查询执行过程中可能有一个或多个提取调用，每次返回满足查询结果所需的一部分数据行。下图展示出了当一条SELECT语句执行的时候“后台”实际所进行的步骤。
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>在一句SELECT语句执行表象之下</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>在一句SELECT语句执行表象之下</p></figcaption></figure>
 
 每次调用时客户端和数据库之间的网络往返回路将会影响语句总的响应时间。除了FETCH以外，其他的数据库调用类型在一次查询过程中都只会发生一次。正如前面所提到的，Oracle需要执行足够次数的FETCH调用来获取并返回满足查询所需要的所有结果。
 
@@ -568,13 +568,13 @@ select * from ALL_IND_COLUMNS where table_name ='LOG_USER';
 
 列大小配置值是通过编程设置的。如何来实现将取决于你所使用的应用调用环境。在SQLPlus中，默认列大小值是15，可以通过使用**SET ARRAYSIZE N**命令改变数组大小。JDBC的默认值是10，可以使用**((0rac1eConnection)conn).setDefaultRowPrefetch(n)**来更改。请一定要看看你的应用的列大小配置值并在必要时增加。具有较大的数组大小的好处有两点:减少FETCH调用的次数以减少网络往返。可能看上去并不怎么样,但其影响之大可能吓你一跳。在下面代码块中展现了同样一个查询的逻辑读取次数是如何通过改变列大小来减少的。注意在自动追踪输出中**逻辑读取是使用consistent gets**标出的
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>列大小设置时如何影响逻辑读取的</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption><p>列大小设置时如何影响逻辑读取的</p></figcaption></figure>
 
 即使对于这个小的仅有664行的结果集，增大列大小所带来的不同也是显而易见的。我将设置值从15增大到45，**逻辑读取的次数就从52次降低到22次**，**网络往返次数从46次减少到16次**!这个改变与SQL语句本身没有任何关系，而与Oracle如何能够访问并返回数据行相关。
 
 ## SQL执行总览
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>SQL语句执行时所发生的步骤汇总</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption><p>SQL语句执行时所发生的步骤汇总</p></figcaption></figure>
 
 这是一张简化了的图，但封装了所有的步骤。从一张大图的角度来说，每一个查询都必须完成解析、执行以及提取的步骤。DML语句(INSERT、UPDATE及DELETE)仅需要进行解析和执行。除了这些步骤之外，使用绑定变量的语句作为解析的一部分还需要包含一个步骤来读取绑定值。
 
