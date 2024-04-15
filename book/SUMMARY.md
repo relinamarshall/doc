@@ -27,5 +27,5 @@
   * [子查询因子化](oracle-gao-ji-bian-cheng/zi-cha-xun-yin-zi-hua.md)
   * [半联结和反联结](oracle-gao-ji-bian-cheng/ban-lian-jie-he-fan-lian-jie.md)
   * [索引](oracle-gao-ji-bian-cheng/suo-yin.md)
-  * [SELECT以外的内容](oracle-gao-ji-bian-cheng/select-yi-wai-de-nei-rong.md)
+  * [SELECT以外内容](oracle-gao-ji-bian-cheng/select-yi-wai-nei-rong.md)
   * [事务处理](oracle-gao-ji-bian-cheng/shi-wu-chu-li.md)

@@ -80,7 +80,7 @@ connect by prior id = parent_id;
 
 PARENTID对你是很有帮助的，因为如果你将计划中所包含的父子关系铭记于心的话将最容易读懂计划中的运算。计划中的每一步都将会有0\~2个子步骤。如果你把计划分解为按父-子关系分组的小块，你将更容易读懂和理解计划。
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 在示例计划中，每个运算有0个、1个或2个子运算。例如，全表扫描运算没有任何子运算。看一下ID=8的那一行。另一个运算没有子运算的例子就是第6行。如果你从上到下浏览一遍PARENTID列，你会发现其中没有步骤6和步骤8。这就意味着这两个运算的完成不依赖于其他任何运算步骤。但是，这两个步骤都是其他步骤的子运算，并会将它们所访问的数据传递给它们的父步骤。当一个运算没有子运算的时候，所展示出来的估计行数`(PLAN_TABLE`表中的`CARDINALITY`列)表示该运算一次迭代所获取的行数。这在一个运算向其选代父运算提供行的时候有点容易引起混乱。例如，第9步是一个估计只有1行的索引唯一扫描运算，但这个估计并没有表明该步骤所要访问的总数据行数。总数取决于父运算。我稍后将会更详细地讨论这方面的内容。 步骤6和步骤8的父步骤5和步骤7都是有一个子运算的例子。
 
@@ -123,9 +123,9 @@ select * from regions where region_id = :regid;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 你注意到解释计划输出中是如何表明将使用主键索引而实际执行计划使用全表扫描的了吗?其原因在谓语信息那一部分很清楚地表明了。在解释计划输出中，谓语是`“REGION_ID”=:REGID`，而在实际执行计划中所示出的谓语是`TO_NUMBER("REGION_ID")=:REGID`。这说明了解释计划不考虑绑定变量的数据类型并假设所有的绑定变量都是字符串类型的方式。对于解释计划来说，数据类型被认为都是一样的(都是字符串)。然而，当语句真正执行的时候所准备的执行计划却要考虑数据类型,Oracle隐式地将字符串数据类型的REGION ID列转换为数值类型来匹配绑定变量的数据类型(数值型)。这是可以预见的行为，因为当进行比较的两种数据类型不匹配时Oracle总是尝试将字符串类型转换为与之匹配的非字符串类型。在这个例子中通过这样做，`TO_NUMBER函数`使得不允许使用索引。这是需要牢记于心的另一个预期的行为:谓语必须严格匹配索引定义，否则将不会使用索引。
 

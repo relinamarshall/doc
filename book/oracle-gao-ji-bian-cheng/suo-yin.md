@@ -87,9 +87,9 @@ wh1ere product='Xtend Memory' and year = 1998 and week = 1;
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>索引扫描</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>索引扫描</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>全表扫描</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>全表扫描</p></figcaption></figure>
 
 显然，没有一个执行计划对于所有SQL语句都是好的。即使对于同一个语句，根据数据的分布以及底层硬件的不同，执行计划的行为也不同。如果数据分布改变了，执行计划就可能具有不同的成本。这恰恰就是为什么你需要收集反映数据分布的统计信息，以便优化器可以选择最优的执行计划。
 
@@ -178,7 +178,7 @@ B-树索引实现类似于**倒置的树型结构**，包括**根节点**、**�
 
 B-树索引适合于具有**较低选择度的列**。如果列的选择度不够低，索引扫描就会较慢。并且，选择度不够的列将会从叶子块中取出大量的行编号从而导致对表进行过多的单数据块访问。
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>B-属索引结构</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>B-属索引结构</p></figcaption></figure>
 
 ### 位图索引
 
@@ -773,7 +773,7 @@ where s.prod_id = p.prod_id and s.cust_id = c.cust_id
 ```
 {% endcode %}
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>位图联接索引</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>位图联接索引</p></figcaption></figure>
 
 依赖于一个好的数据模型,位图联结索引在数据仓库环境中是很有用的。但这种索引在`OLTP(Online Transaction Processing)在线事务处理系统`的应用中是没用的。
 

@@ -239,9 +239,9 @@ and o.order_total>100000;
 
 > 试图合并执行计划比较
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>进行试图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>进行试图合并</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>不进行试图合并</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>不进行试图合并</p></figcaption></figure>
 
 第2个不进行视图合并的执行计划中视图是单独来进行处理的。该计划还通过在第3行中使用**VIEW关键字**来表明视图是保持“原样”的。通过单独处理视图，在与外部的orders表联结之前就要对orders表进行全表扫描。然而，在使用视图合并的版本中，计划运算合并为一个计划而不是让内嵌视图保持独立。这就使得所选的对于索引的访问操作效率更高，并且需要处理更少的行(26行-104行)。这个例子使用的还是一个很小的表，因此可以想象如果在查询中包含很大的表的话将会做多少工作。对视图进行合并的转换使得总体执行计划变得更佳。
 

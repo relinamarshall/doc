@@ -143,7 +143,7 @@ FROM ALL_TABLES WHERE TABLE_NAME='T2'
 
 在经过一系列常规操作之后，数据行被从表中删除。下图所示为从数据表中删除掉很多行之后麦中的情景。
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>数据行被删除后数据块中的情景，高水位线保持不变</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>数据行被删除后数据块中的情景，高水位线保持不变</p></figcaption></figure>
 
 即使几乎所有数据行都被删除了并且一些块实际上已经完全变成空的了,高水位线还是保持不变。当进行全扫描运算的时候，到高水位线为止的所有数据块都将被读取并扫描，即使它们是空的。这就意味着许多实际上不需要读取的空数据块也被读取了。下列代码清给出了为什么即使表中所有行都被删除掉了，高水位线还是保持不变的一个例子。
 
@@ -626,9 +626,9 @@ Plan hash value: 4208130311
 
 > 索引跳跃扫描的例子
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 在这个例子中，索引的引导列`job_id`具有19个唯一值。使用索引跳跃扫描来访问符合条件的23行数据`(first_name='william')`，将会有50次一致性读取(逻辑块访问)。如果使用全表扫描则需要访问376个数据块。由此可见，跳跃扫描的效率更高。索引跳跃扫描过程中所发生的事情就是索引被逻辑地划分为19个子索引，然后对每个子索引进行扫描寻找符合条件`firstname'William'`的。对于这种索引扫描类型，需要记住的一点是索引引导列的唯一值越少，所需的逻辑子索引数目也越少，从而需要访问的总块数也越少
 
