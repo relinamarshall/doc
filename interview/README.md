@@ -129,17 +129,13 @@ public class Demo {
 
 **数据依赖性**：如果两个操作访问同一个变量，且这两个操作中有一个为写，此时这两个操作存在数据依赖性；分为以下列三种类型，下面三种情况，只要重排两个操作执行顺序，程序的执行结果就会发生改变；所以编译器和处理器不会改变单线程或单处理器环境下存在数据依赖性操作的执行顺序；在多处理器或多线程之前的数据依赖性不被编译器和处理器考虑。
 
-| 名称  | 代码示例         | 说明              |
-| --- | ------------ | --------------- |
-| 写后读 | a = 1;b = a; | 写一个变量之后，再读这个位置。 |
-| 写后写 | a = 1;a = 2; | 写一个变量之后，再写这个变量。 |
-| 读后写 | a = b;b = 1; | 读一个变量之后，再写这个变量。 |
+<table><thead><tr><th>名称</th><th width="156">代码示例</th><th>说明</th></tr></thead><tbody><tr><td>写后读</td><td>a = 1;b = a;</td><td>写一个变量之后，再读这个变量</td></tr><tr><td>写后写</td><td>a = 1;a = 2;</td><td>写一个变量之后，再写这个变量</td></tr><tr><td>读后写</td><td>a = b;b = 1;</td><td>读一个变量之后，再写这个变量</td></tr></tbody></table>
 
 **有序性问题（指令重排序）**:指在多线程环境下，由于执行语句重排序后，重排序代码块没有执行完，就切换到其他线程，导致计算结果与预期不符的问题；这就是编译器的编译优化给并发编程带来的有序性问题。
 
 {% tabs %}
 {% tab title="代码复现" %}
-{% code overflow="wrap" lineNumbers="true" %}
+{% code overflow="wrap" lineNumbers="true" fullWidth="false" %}
 ```java
 public class Demo {
     private static int a, b, x, y;
@@ -211,8 +207,6 @@ public class Demo {
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-
 
 
 
