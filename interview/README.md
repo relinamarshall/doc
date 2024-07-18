@@ -17,16 +17,22 @@ layout:
 
 ## 什么是Java内存模型
 
-JMM本身只是一个抽象的概念，并不真实存在，它描述的是一种规则或规范；通过这组规范，定义了程序中对各种变量（包括实例字段，静态字段和构成数组对象的元素）的访问方式。需要每个JVM的实现都要遵守这样的规范；有了JMM规范的保障后，并发程序运行在不同虚拟机上时，得到的程序结果才是安全可靠可信赖的，如果没有JMM内存模型来规范，那经过不同JVM翻译之后，就可能出现，运行结果不相同或不正确。
+Java内存模型是Java规范的一部分，主要定义了在多线程环境中如何通过内存进行交互和通信，并发访问共享变量时的规范。JMM解决了以下几个关键问题：
+
+1. **内存可见性**：一个线程对变量的写操作何时对另一个线程可见。
+2. **指令重排序**：允许编译器和处理器在不改变程序正确性前提下对指令进行重排序，以优化性能。
+3. **同步机制**：提供了一套规则来管理多线程之间的同步操作，如锁（`synchronized`）、volatile变量等。
 
 简单说JMM就是屏蔽了各种硬件和操作系统的访问差异，保证Java程序在各种平台下对内存的访问都能保证效果一致的机制规范。
 
-JMM还抽象出主存储器(Main Memory)和工作存储器(Working Memory)两种：
+JMM还抽象出**主存储器(Main Memory)**和**工作存储器(Working Memory)**两种：
 
-* 主存储器是实例对象所在的区域，所有实例都存在于主存储器内，主存储器是所有线程共享的
-* 工作存储器是线程所拥有的作业区，每个线程都有其专用的工作存储器；工作存储器存有主存储器中必要部分的拷贝，称为工作拷贝(Working Copy)
+* **主存储器**是实例对象所在的区域，所有实例都存在于主存储器内，主存储器是所有线程共享的
+* **工作存储器**是线程所拥有的作业区，每个线程都有其专用的工作存储器；工作存储器存有主存储器中必要部分的拷贝，称为工作拷贝(Working Copy)
 
 所以线程无法直接对主内存进行操作，线程A想要和线程B通信，只能通过主存进行。
+
+总结：Java语言中用于描述多线程并发访问共享变量时的规范。它定义了线程如何与**主内存**和**工作内存**进行交互，以及对**共享变量**的访问和操作应该遵循的规则。在此之前，主流程序语言（如 C/C++等）直接使用物理硬件和操作系统的内存模型，因此，会由于不同平台上内存模型的差异，可能导致程序在一套平台上并发完全正常，而在另外一套平台上并发访问却经常出错，这导致在某些场景下必须针对不同的平台来编写不同的代码。 **JMM 屏蔽了不同处理器内存模型的差异，它在不同的处理器平台之上为 Java 程序员呈现了一个一致的内存模型。**通过JMM的规范，Java程序员可以利用各种同步机制（如synchronized、volatile等）来控制线程之间的互动和数据共享，从而编写正确且高效的多线程程序。
 
 ## 三大特性
 
@@ -208,5 +214,69 @@ public class Demo {
 {% endtab %}
 {% endtabs %}
 
+### **volatile原理和实现机制**
 
+观察加volatile关键字和没有加入volatile关键字时所生产的汇编代码发现，加volatile关键字时，会多出一个lock前缀指令；lock前缀指令相当于一个内存屏障(也称内存栅栏)，内存屏障会提供3个功能
 
+* 他确保指令重排序时不会把其后面的指令排到内存屏障之前的位置，也不会把前面的指令排到内存屏障后面；即在执行到内存屏障这句指令时，在它之前的操作已经全部完成
+* 会强制将对缓存的修改操作立即写入主存
+* 如果是写操作，它会导致其他CPU中对应的缓存行无效
+
+## as-if-serial语义
+
+不管怎么重排序(编译器和处理器都是为了提高并行度)，(单线程)程序的执行结果不能改变；编译器和处理器必须遵守as-if-serial语义
+
+## happens-before
+
+### happens-before原则
+
+happens-before原则是JMM中的一个重要部分，用于定义操作之间的顺序关系。具体来说，如果一个操作happens-before另一个操作，那么第一个操作的结果对第二个操作是可见的，并且第一个操作的执行顺序在第二个操作之前。
+
+### 与JMM的关系
+
+1. **内存可见性保障**：happens-before关系确保了操作之间的可见性。如果一个操作happens-before另一个操作，那么第一个操作的结果对第二个操作是可见的。这样可以避免可见性问题。
+2. **指令重排序限制**：编译器和处理器可以对指令进行重排序以优化性能，但这种重排序不能违反happens-before规则。happens-before关系限制了重排序的范围，以确保程序的正确性。
+3. **同步机制实现**：JMM通过happens-before原则来定义同步机制的行为。例如，`synchronized`块和`volatile`变量都依赖于happens-before原则来确保线程之间的操作顺序和内存可见性。
+
+### happens-before规则
+
+JMM定义了一系列具体的happens-before(之前发生)规则，包括但不限于：
+
+1. **程序顺序规则**：在一个线程内，按照程序代码顺序，前面的操作happens-before后面的操作。
+2. **监视器锁规则**：一个解锁操作happens-before于后续对同一个锁的加锁操作。
+3. **volatile变量规则**：对一个volatile变量的写操作happens-before于后续对这个volatile变量的读操作。
+4. **线程启动规则**：对Thread对象的start()方法的调用happens-before于该线程开始的所有操作。
+5. **线程终止规则**：线程中的所有操作happens-before于对线程的终止检测，比如通过Thread.join()方法结束、Thread.isAlive()返回检测到等。
+6. **中断规则**：对线程interrupt()方法的调用happens-before于被中断线程的代码检测到中断事件的发生。
+7. **对象终结规则**：一个对象的构造函数执行完成happens-before于它的finalize()方法的开始。
+8. **传递性**：如果A happens-before B，且B happens-before C，那么A happens-before C。
+
+{% code overflow="wrap" lineNumbers="true" %}
+```java
+public class HappensBeforeExample {
+    private int a = 0;
+    private volatile boolean flag = false;
+
+    public void writer() {
+        a = 1;                // 写普通变量
+        flag = true;          // 写volatile变量
+    }
+
+    public void reader() {
+        if (flag) {           // 读volatile变量
+            int i = a;        // 读普通变量
+            System.out.println(i); // 保证i的值为1
+        }
+    }
+
+    public static void main(String[] args) {
+        HappensBeforeExample example = new HappensBeforeExample();
+        Thread t1 = new Thread(example::writer);
+        Thread t2 = new Thread(example::reader);
+        t1.start();
+        t2.start();
+    }
+}
+
+```
+{% endcode %}
